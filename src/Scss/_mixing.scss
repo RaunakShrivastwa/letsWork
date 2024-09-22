@@ -1,27 +1,29 @@
+@import "./Function.scss";
+
 @mixin flex($justify, $align, $direction, $gap, $padding) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-direction: $direction;
-    gap: rem($gap);
-    padding: rem($padding);
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: rem($gap);
+  padding: rem($padding);
 }
 
 @mixin font($fs, $fw, $lineH) {
-    font-size: $fs;
-    font-weight: $fw;
-    line-height: $lineH;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lineH;
 }
 
 @mixin setDimension($width, $height) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin hover($radius, $bg, $textColor: $textColor) {
-    border-radius: $radius;
-    background-color: $bg;
-    color: $textColor;
+  border-radius: $radius;
+  background-color: $bg;
+  color: $textColor;
 }
 
 @mixin customize_radius($radius, $bg, $textColor: $textColor) {
