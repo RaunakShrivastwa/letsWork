@@ -40,3 +40,14 @@ main {
   width: 100vw !important;
   height: 100vh !important;
 }
+
+
+::-webkit-scrollbar {
+  background-color: gray;
+  @include setDimension(rem(6), rem(1));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(45, 44, 44);
+  border-radius: 10px;
+}
