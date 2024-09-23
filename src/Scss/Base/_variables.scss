@@ -1,16 +1,29 @@
 // for the common in both
-:root{
-
+:root {
+  --white: #ffffff;
+  --pink: #f95408;
+  --blue: #0d3d65;
+  --black: rgb(16, 16, 16);
 }
-
 
 // for the Dark
-.dark_theme{
-
+.dark_theme {
+  --bg: black;
+  --inline-shadow: rgba(0, 0, 0, 0.5);
+  --outline-shadow: rgba(0, 0, 0, 0.5);
+  --strongly-shadow: rgba(0, 0, 0, 0.7);
 }
 
-
 // for the Light
-.light_theme{
-
+.light_theme {
+  --bg-gradient:rgb(243, 236, 210);;
+  --bg: linear-gradient(
+    90deg,
+    rgba(243, 236, 210, 1) 0%,
+    rgba(239, 245, 245, 1) 49%,
+    rgba(207, 234, 229, 1) 100%
+  );
+  --inline-shadow: rgba(0, 0, 0, 0.1);
+  --outline-shadow: rgba(0, 0, 0, 0.1);
+  --strongly-shadow: rgba(0, 0, 0, 0.2);
 }

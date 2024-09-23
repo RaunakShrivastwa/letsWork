@@ -1,10 +1,31 @@
-@import './Scss/Base/index.scss';
-@import './Scss/Function';
-@import './Scss//mixing';
+@import "./Scss/Base/index.scss";
+@import "./Scss/Function";
+@import "./Scss//mixing";
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.box_shadow {
+  box-shadow:
+    0 rem(1) rem(3) var(--inline-shadow),
+    0 rem(1) rem(2) var(--outline-shadow),
+    0 rem(4) rem(6) var(--strongly-shadow);
+}
+p{
+  margin: 0 !important;
+}
+
+.custome_radius{
+  border-radius: rem(28) !important;
+}
+
+main {
+  background: var(--bg-gradient);
+  background: var(--bg);
+  width: 100vw !important;
+  height: 100vh !important;
 }

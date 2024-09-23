@@ -2,17 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Components/Home/Home';
 import './styles.scss';
+import Header from './Components/Header/Header';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
-    <body className='main_Container bg-danger vw-100 vh-100' >
+    <main className='main_Container light_theme'>
       <Router>
+        <Header />
         <Routes>
           <Route exact path='/' element={<Home />} />
         </Routes>
       </Router>
 
-    </body>
+    </main>
   )
 }
 

@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+
+header {
+    @include setDimension(100vw, rem(71));
+    @include flex("", center, "", 0, 0);
+    background-color: var(--white);
+    padding: 0 rem(50);
+
+    .header_items_container {
+        flex-grow: 1;
+        height: 100%;
+        @include flex(end, center, "", 30, 0);
+        color: var(--blue);
+        .quotes {
+            background-color: var(--pink);
+            color: var(--white);
+            padding-left: rem(16);
+        }
+        .menus {
+            @include flex(center, center, "", 10, 0);
+        }
+       
+    }
+}
