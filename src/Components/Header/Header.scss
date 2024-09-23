@@ -1,24 +1,118 @@
 @import "../../styles.scss";
 
-header {
+.parent {
+    background-color: var(--header);
     @include setDimension(100vw, rem(71));
-    @include flex("", center, "", 0, 0);
-    background-color: var(--white);
-    padding: 0 rem(50);
+    .header {
+        @include setDimension(100%, 100%);
+        @include flex("", center, "", 0, 0);
+        padding: 0 rem(50);
+        .logo {
+            @include rounded_image(50, 50);
+        }
 
-    .header_items_container {
-        flex-grow: 1;
-        height: 100%;
-        @include flex(end, center, "", 30, 0);
-        color: var(--blue);
-        .quotes {
-            background-color: var(--pink);
-            color: var(--white);
-            padding-left: rem(16);
+        .header_items_container {
+            flex-grow: 1;
+            height: 100%;
+            @include flex(end, center, "", 30, 0);
+            color: var(--textColor);
+
+            .quotes {
+                background-color: var(--pink);
+                font-weight: 700;
+                padding-left: rem(16);
+                color: var(--white);
+            }
+
+            .menus {
+                @include flex(center, center, "", 10, 0);
+                font-weight: 600;
+            }
+
+            .icons {
+                @include setDimension(rem(50),rem(50));
+                @include flex(center,center,'',0,0);         
+                border-radius: 50%;
+
+                &:hover {
+                    color: var(--white);
+                    transition: 0.5s ease-in-out;
+                    cursor: pointer;
+
+                    &.phone {
+                        background-color: var(--blue);
+                    }
+
+                    &.mail {
+                        background-color: var(--pink);
+                    }
+
+                    &.instagram {
+                        background: linear-gradient(to right, #F58529, #F77737, #D62976, #962FBF);
+                    }
+
+                    &.facebook {
+                        background-color: #4267B2;
+                    }
+
+                    &.linkedin {
+                        background-color: #0077B5;
+                    }
+                }
+
+                .i24 {
+                    animation: iconMove 1.5s infinite ease-in-out;
+                }
+
+            }
+            .signin,.signup{
+                color: var(--pink);
+                &:hover{
+                    color: var(--blue);
+                }
+            }
         }
-        .menus {
-            @include flex(center, center, "", 10, 0);
+    }
+}
+
+@keyframes iconMove {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+// ---------------------responsive---------------------------------
+
+@include width-range(rem(0), $tablet) {
+    .header {
+        .header_items_container {
+            .icons {
+                display: none !important;
+            }
         }
-       
     }
 }

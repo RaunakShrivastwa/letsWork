@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
-    <main className='main_Container light_theme'>
+    <main className='main_Container dark_theme'>
       <Router>
         <Header />
         <Routes>
