@@ -3,6 +3,7 @@
 .parent {
     background-color: var(--header);
     @include setDimension(100vw, rem(71));
+
     .header {
         @include setDimension(100%, 100%);
         @include flex("", center, "", 0, 0);
@@ -26,10 +27,12 @@
                 font-weight: 500;
                 color: var(--textColor);
             }
+
             .signin,
             .signup {
                 color: var(--pink);
                 font-weight: 500;
+
                 &:hover {
                     color: var(--textColor);
                     cursor: pointer;
@@ -118,30 +121,53 @@
     background: var(--bg);
     backdrop-filter: blur(30px);
     width: 300px !important;
+    min-width: 250px;
+    margin: 0px 10px;
     color: var(--textColor) !important;
+
     .header_parent {
-        min-height: 70px;
+        width: 100%;
+        height: auto;
+
+        .side_header {
+            height: auto;
+            max-height: 300px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
     }
+
     .sidebar_container {
         flex-grow: 1;
         max-height: 80vh;
         overflow-y: auto;
         position: relative;
+        margin-top: 10px;
+
         span {
             width: 90%;
             height: 60px;
             display: flex;
             align-items: center;
             padding-left: 16px;
-            z-index: 5;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+
             &:hover::after {
                 position: absolute;
                 cursor: pointer;
-                width: 90%;
+                width: 97%;
                 height: 60px;
+                margin-bottom: 10px;
                 left: 0;
                 animation: animate 0.5s alternate;
-                background-color: var(--header);
+                background-color: rgba(0, 0, 0, 0.034);
+                box-shadow:
+                        0 rem(1) rem(3) var(--inline-shadow),
+                        0 rem(1) rem(2) var(--outline-shadow),
+                        0 rem(4) rem(6) var(--strongly-shadow);
                 border-top-right-radius: 30px;
                 border-bottom-right-radius: 30px;
                 z-index: -1;
@@ -149,32 +175,82 @@
             }
         }
     }
+
     .footer_container {
-        min-height: 70px;
-        .name {
-            @include textTruncate(rem(180));
+        width: 100%;
+        height: auto;
+
+        .footer {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+
+            .name {
+                @include textTruncate(rem(130))
+            }
         }
     }
+
 }
 
 // animation
 @keyframes animate {
-  0% {
-    width: 0%;
-  }
+    0% {
+        width: 0%;
+    }
 
-  100% {
-    width: 97%;
-  }
+    100% {
+        width: 97%;
+    }
 }
 
 // ---------------------responsive---------------------------------
+
+@include width-range(0, $mediaDesktop) {
+    .header {
+        .header_items_container {
+            .get_quotes {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@include width-range(0, $large) {
+    .header {
+        .header_items_container {
+
+            .signin,
+            .signup {
+                display: none;
+            }
+        }
+    }
+}
 
 @include width-range(rem(0), $tablet) {
     .header {
         .header_items_container {
             .icons {
                 display: none !important;
+            }
+
+            .toggle_icon {
+                display: none;
+            }
+
+            .menus {
+                display: flex !important;
+            }
+        }
+    }
+}
+
+@include width-range(rem(0), $mobile) {
+    .header {
+        .header_items_container {
+            .hire {
+                display: none;
             }
         }
     }
