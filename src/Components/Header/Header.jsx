@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Header.scss';
 import { AlignCenter, Facebook, Instagram, Linkedin, Mail, Menu, Moon, Phone, SkipBack, Sun, Twitter, X } from 'react-feather';
+import { Link } from 'react-router-dom';
 // import {} from 'react-feather'
 
 const Header = ({ setTheme }) => {
@@ -33,7 +34,7 @@ const Header = ({ setTheme }) => {
                             }
                         </p>
 
-                        <p className='menus d-none' data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
+                        <p className='menus' data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
                             <span className='span'>Menu</span>
                             <AlignCenter className='i24' />
                         </p>
@@ -54,16 +55,32 @@ const Header = ({ setTheme }) => {
                         </div>
                     </div>
 
-                    <div className='sidebar_container mb-4 w-100 d-flex flex-column '>
-                        <span className=' span signin'>SignIn</span>
-                        <span className='span signup me-5'>SignUp</span>
+                    <div className='sidebar_container w-100 d-flex flex-column '>
+                        <Link className=' span signin'>SignIn</Link>
+                        <Link className='span signup me-5'>SignUp</Link>
+                        <Link className='span signup me-5'>About Us</Link>
+                        <Link className='span signup me-5'>Our Services</Link>
+                        <div className='mt-3 d-flex w-100 q_btn gap-4 justify-content-center'>
+                            <button className='quotes get_quotes btn custome_radius f19'>Get Quotes</button>
+                            <button className='quotes hire btn custome_radius f19'>Hire Us</button>
+                        </div>
+                        <Link className='span signup me-5'>Our Work</Link>
+                        <Link className='span signup me-5'>Career</Link>
+                        <Link className='span signup me-5'>Blogs</Link>
+                        <Link className='span signup me-5'>Project Live Status</Link>
+                        <Link className='span signup me-5'>Contacts</Link>
+                        <Link className='span signup me-5'>Free API</Link>
+                        <Link className='span signup me-5'>Articles</Link>
+                        <Link className='span signup me-5'>Courses</Link>
+                        <Link className='span signup me-5'>Session</Link>
+                        <Link className='span signup me-5'>Advices- $</Link>
                     </div>
 
                     <div className='footer_container w-100 p-3'>
-                        <div className='footer p-2 box_shadow custome_radius d-flex gap-4 justify-content-center align-items-center'>
+                        <div className='footer p-2 box_shadow mb-3 custome_radius d-flex gap-4 justify-content-center align-items-center'>
                             <img className='logo box_shadow' src="https://cdn-icons-png.flaticon.com/128/16683/16683419.png" alt="" />
                             <span className='name'>Shubham Shri.</span>
-                            <p className='toggle_icon' title={`${toggle ? 'You are In Night Mode' : 'You are In Day Mode'}`} onClick={Toggle}>
+                            <p className='toggle_icon1 d-none' title={`${toggle ? 'You are In Night Mode' : 'You are In Day Mode'}`} onClick={Toggle}>
                                 {
                                     toggle ? <Moon /> : <Sun />
                                 }
