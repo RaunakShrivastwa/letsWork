@@ -15,7 +15,7 @@ $largeDesktop: rem(1920);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Lato Alternates", sans-serif;
     font-weight: 100;
     font-style: normal;
@@ -40,6 +40,7 @@ main {
   background: var(--bg);
   width: 100vw !important;
   height: 100vh !important;
+  overflow-y: auto !important;
 }
 
 ::-webkit-scrollbar {
