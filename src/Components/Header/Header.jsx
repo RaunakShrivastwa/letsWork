@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import {} from 'react-feather'
 
 const Header = ({ setTheme }) => {
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState(false);
 
     const Toggle = () => {
         setToggle(!toggle);
@@ -30,7 +30,7 @@ const Header = ({ setTheme }) => {
                         <img className='logo box_shadow d-none' src="https://cdn-icons-png.flaticon.com/128/16683/16683419.png" alt="" />
                         <p className='toggle_icon' title={`${toggle ? 'You are In Night Mode' : 'You are In Day Mode'}`} onClick={Toggle}>
                             {
-                                toggle ? <Moon /> : <Sun />
+                                toggle ? <Sun /> : <Moon />
                             }
                         </p>
 
@@ -42,6 +42,7 @@ const Header = ({ setTheme }) => {
                 </div>
             </header>
 
+            {/* for the menubar */}
             <div class="offcanvas offcanvas_sidebar box_shadow custome_border offcanvas-end m-3 custome_radius" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 
                 <div class="offcanvas-body d-flex flex-column p-0">
@@ -51,7 +52,7 @@ const Header = ({ setTheme }) => {
                             <span className='icons box_shadow phone'><Phone className='i24' /></span>
                             <span className='icons box_shadow mail'><Mail className='i24 mail' /></span>
                             <span className='icons box_shadow instagram'> <Instagram className='i24' /></span>
-                            <span className='icons box_shadow facebook text-danger'> <X className='i24' data-bs-dismiss="offcanvas" /></span>
+                            <span className='icons box_shadow facebook text-danger' data-bs-dismiss="offcanvas"> <X className='i24' /></span>
                         </div>
                     </div>
 
@@ -82,7 +83,7 @@ const Header = ({ setTheme }) => {
                             <span className='name'>Shubham Shri.</span>
                             <p className='toggle_icon1 d-none' title={`${toggle ? 'You are In Night Mode' : 'You are In Day Mode'}`} onClick={Toggle}>
                                 {
-                                    toggle ? <Moon /> : <Sun />
+                                    toggle ? <Sun /> : <Moon />
                                 }
                             </p>
                         </div>

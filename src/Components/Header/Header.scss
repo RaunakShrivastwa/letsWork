@@ -8,6 +8,7 @@
     color: var(--white);
     position: relative;
     z-index: 20;
+
     &:hover {
         display: flex;
         justify-content: center;
@@ -147,12 +148,15 @@
     0% {
         width: 0%;
     }
+
     50% {
         width: 100%;
     }
+
     75% {
         width: 150%;
     }
+
     100% {
         width: 200%;
     }
@@ -161,21 +165,19 @@
 .offcanvas_sidebar {
     background: var(--bg-gradient);
     background: var(--bg);
-    backdrop-filter: blur(30px);
-    width: 300px !important;
-    min-width: 250px;
-    margin: 0px 10px;
+    backdrop-filter: blur(rem(30));
+    width: rem(300) !important;
+    min-width: rem(250);
+    margin: 0 rem(10);
     color: var(--textColor) !important;
 
     .header_parent {
-        width: 100%;
-        height: auto;
+        @include setDimension(100%, auto);
 
         .side_header {
-            height: auto;
+            height: 100%;
             max-height: 300px;
-            display: flex;
-            justify-content: space-between;
+            @include flex(space-between, '', '', 0, 0);
             flex-wrap: wrap;
         }
     }
@@ -186,52 +188,49 @@
         overflow-y: auto;
         position: relative;
 
-        .q_btn{
+        .q_btn {
             min-height: rem(60);
         }
 
         .span {
             width: 90%;
-            min-height: 40px;
+            min-height: rem(40);
             text-decoration: none;
             color: var(--textColor);
             font-weight: 300;
-            display: flex;
-            align-items: center;
-            padding-left: 30px;
+            @include flex('', center, '', 0, 0);
+            padding-left: rem(30);
             z-index: 2;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(rem(30));
 
             &:hover::after {
                 position: absolute;
                 cursor: pointer;
-                width: 97%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                padding-left: 16px;
+                @include setDimension(97%, 100%);
+                @include flex('', center, '', 0, 0);
+                padding-left: rem(16);
                 font-weight: 500;
                 left: 0;
                 animation: animate 0.5s alternate;
                 background-color: var(--pink);
-                border-top-right-radius: 30px;
-                border-bottom-right-radius: 30px;
+                border-top-right-radius: rem(30);
+                border-bottom-right-radius: rem(30);
                 z-index: -1;
                 content: "";
             }
         }
-        .quotes{
+
+        .quotes {
             @extend %btnHoverCommon;
         }
     }
 
     .footer_container {
-        width: 100%;
-        height: auto;
+        @include setDimension(100%, auto);
 
         .footer {
             width: 100%;
-            height: auto;
+            height: 100%;
             max-height: 300px;
 
             .name {
@@ -269,6 +268,7 @@
 @include width-range(0, $large) {
     .header {
         .header_items_container {
+
             .signin,
             .signup {
                 display: none;
@@ -294,8 +294,8 @@
         }
     }
 
-    .footer_container{
-        .toggle_icon1{
+    .footer_container {
+        .toggle_icon1 {
             display: block !important;
         }
     }
