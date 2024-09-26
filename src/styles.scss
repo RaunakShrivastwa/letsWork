@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import './Scss/Base/index.scss';
 @import './Scss/Function';
 @import './Scss//mixing';
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    font-family: "Montserrat", sans-serif;
 }

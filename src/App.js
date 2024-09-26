@@ -5,7 +5,7 @@ import './styles.scss';
 
 const App = () => {
   return (
-    <body className='main_Container bg-danger vw-100 vh-100' >
+    <body className='main_Container' >
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />} />

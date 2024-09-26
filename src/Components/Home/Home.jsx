@@ -1,8 +1,11 @@
 import React from 'react'
+import WhyUs from '../WhyUs/WhyUs.jsx';
 
 const Home = () => {
   return (
-    <div className='f22'>Home</div>
+    <>
+      <WhyUs />
+    </>
   )
 }
 
