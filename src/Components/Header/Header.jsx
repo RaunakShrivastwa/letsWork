@@ -14,7 +14,7 @@ const Header = ({ setTheme }) => {
     return (
         <>
             <header className='box_shadow parent sticky-top'>
-                <div className='header lg-container-lg'>
+                <div className='header container-lg'>
                     <img className='logo' src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png" alt="" />
                     <div className="header_items_container">
                         <span className='icons box_shadow phone'><Phone className='i24' /></span>

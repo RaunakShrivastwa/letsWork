@@ -15,8 +15,8 @@
 // for the Dark
 .dark_theme {
   --bg-gradient: rgb(236, 167, 120);
-  --textColor:#e1e7ec;
-  --header:rgba(39, 37, 37, 0.658);
+  --textColor: #e1e7ec;
+  --header: rgba(39, 37, 37, 0.658);
   --bg: linear-gradient(90deg,
       rgba(30, 30, 30, 1) 0%,
       rgba(45, 50, 55, 1) 49%,
@@ -24,12 +24,16 @@
   --inline-shadow: rgba(0, 0, 0, 0.5);
   --outline-shadow: rgba(0, 0, 0, 0.5);
   --strongly-shadow: rgba(0, 0, 0, 0.7);
+  --title-desc: rgb(221, 183, 126);
+  --after-fill: rgb(11, 236, 199);
+  --before-fill: rgb(243, 102, 8);
 }
 
 // for the Light
 .light_theme {
   --textColor: #0d3d65;
-  --header:white;
+  --title-desc: blue;
+  --header: white;
   --bg-gradient: rgb(243, 236, 210);
   --bg: linear-gradient(90deg,
       rgba(243, 236, 210, 1) 0%,
@@ -38,5 +42,7 @@
   --inline-shadow: rgba(0, 0, 0, 0.1);
   --outline-shadow: rgba(0, 0, 0, 0.1);
   --strongly-shadow: rgba(0, 0, 0, 0.2);
-  --dot-bg:rgba(238, 83, 83, 0.582);
+  --dot-bg: rgba(238, 83, 83, 0.582);
+  --after-fill: rgb(11, 236, 206);
+  --before-fill: rgb(243, 82, 8);
 }
