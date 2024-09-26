@@ -1,16 +1,53 @@
 @import "../../styles.scss";
 
 .main_section {
-    @include setDimension(100vw, 99vh);
+    @include setDimension(100vw, 100vh);
     overflow-y: auto;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        @include setDimension(rem(170), rem(170));
+        background-image: radial-gradient(circle, var(--before-fill) 20%, transparent 20%),
+            radial-gradient(circle, var(--before-fill) 20%, transparent 20%);
+        background-size: rem(10) rem(10);
+        background-position:
+            0 0,
+            rem(5) rem(5);
+        border-radius: 50%;
+        content: "";
+        bottom: 10px;
+        left: 60px;
+        z-index: 1;
+        margin-bottom: 40px;
+        transition: transform 0.5s ease;
+        animation: moveUpDown 3s ease-in-out infinite;
+    }
+
+    &::after {
+        position: absolute;
+        @include setDimension(rem(170), rem(170));
+        background-image: radial-gradient(circle, var(--after-fill) 20%, transparent 20%),
+            radial-gradient(circle, var(--after-fill) 20%, transparent 20%);
+        background-size: rem(10) rem(10);
+        background-position:
+            0 0,
+            rem(5) rem(5);
+        border-radius: 50%;
+        content: "";
+        top: 10%;
+        right: 10%;
+        transition: transform 0.5s ease;
+        animation: moveUpDown 3s ease-in-out infinite;
+    }
 
     .wrapper {
-        @include flex('', '', '', 0, 0);
+        @include flex("", "", "", 0, 0);
         height: rem(610);
         display: flex;
         justify-content: center;
         width: 100%;
-        padding: 0 rem(195);
+        padding: 0 rem(195) 0 100px;
 
         .left {
             width: rem(687);
@@ -22,11 +59,25 @@
             }
 
             .title {
-                line-height: rem(70)
+                line-height: rem(70);
+                span {
+                    color: var(--pink);
+                    font-weight: 400;
+                    filter: drop-shadow(rem(5) rem(5) rem(5) rgba(196, 238, 8, 0.585));
+                }
+            }
+
+            .desc {
+                font-weight: 500;
             }
 
             .btn_grp {
-                @include flex('', center, '', 20, 0);
+                @include flex("", center, "", 20, 0);
+
+                button {
+                    background-color: var(--pink);
+                    color: var(--white);
+                }
             }
         }
 
@@ -35,24 +86,82 @@
             display: grid;
             grid-template-rows: repeat(2, 2fr);
             grid-template-columns: repeat(2, 2fr);
-            gap: 10px;
-            // @include flex(center,center,'',10,0);
-            // flex-wrap: wrap;
-            padding-top: rem(100);
+            place-items: center;
+            padding-top: rem(60);
 
             .items {
                 min-height: rem(251);
+                margin-bottom: 50px !important;
+                filter: drop-shadow(rem(5) rem(5) rem(5) rgba(238, 112, 8, 0.585));
+            }
+            .img1 {
+                animation: moveUpDown1 6s ease-in-out infinite;
+            }
+            .img2 {
+                animation: moveUpDown2 5s ease-in-out infinite;
             }
         }
     }
 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Keyframes for moving the element up and down
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); // Initial position
+    }
+    50% {
+        transform: translateY(-20px); // Move up by 20px
+    }
+    100% {
+        transform: translateY(0); // Return to the original position
+    }
+}
+@keyframes moveUpDown1 {
+    0% {
+        transform: translateY(0); // Initial position
+    }
+    50% {
+        transform: translateY(-50px); // Move up by 20px
+    }
+    100% {
+        transform: translateY(0); // Return to the original position
+    }
+}
+
+@keyframes moveUpDown2 {
+    0% {
+        transform: translateY(0); // Initial position
+    }
+    50% {
+        transform: translateY(-50px); // Move up by 20px
+    }
+    100% {
+        transform: translateY(0); // Return to the original position
+    }
 }
 
 @include width-range($desktop, $mediaDesktop) {
     .wrapper {
         padding: 10px !important;
         width: 100vw !important;
-
     }
 
     .title {
@@ -65,7 +174,6 @@
     .wrapper {
         padding: 20px !important;
         width: 100vw !important;
-
     }
 
     .title {
@@ -76,23 +184,27 @@
 }
 
 @include width-range(0px, $tablet) {
-
-    .main_section{
+    .main_section {
         width: 100% !important;
         max-height: 100vh !important;
+
+        &::before {
+            display: none !important;
+        }
     }
 
-    .left{
+    .left {
         width: 100% !important;
         order: 10;
     }
 
-    .right{
+    .right {
         height: auto !important;
         order: 1;
         width: 100% !important;
         padding-top: 10px !important;
         padding-bottom: 40px;
+        margin-bottom: 0 !important;
     }
 
     .wrapper {
@@ -100,5 +212,4 @@
         height: auto !important;
         width: 100% !important;
     }
-
 }
