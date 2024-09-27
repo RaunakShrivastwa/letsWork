@@ -58,13 +58,15 @@
     font-size: rem(60);
 }
 
-
 // for the icons
 .i24 {
     @include setDimension(rem(18), rem(18));
     @include flex(center, center, "", 0, 0);
 }
-
+.i11 {
+    @include setDimension(rem(11), rem(11));
+    @include flex(center, center, "", 0, 0);
+}
 .i20 {
     @include setDimension(rem(15), rem(15));
     @include flex(center, center, "", 0, 0);

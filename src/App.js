@@ -5,20 +5,21 @@ import './styles.scss';
 import Header from './Components/Header/Header';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import Test from './Components/Root/Root.jsx';
 
 const App = () => {
-  const [theme, setTheme] = useState('light_theme');
+  const [theme, setTheme] = useState('dark_theme');
   return (
     <main className={`main_Container ${theme}`}>
       <Router>
-        <Header setTheme={setTheme} />
+        <Header setTheme={setTheme} theme={theme} />
         <Routes>
-          <Route exact path='/' element={<Home />} />
+        <Route exact path='/' element={<Test theme={ theme} />} />
         </Routes>
       </Router>
 
-    </main>
-  )
+    // </main>
+  ) 
 }
 
 export default App

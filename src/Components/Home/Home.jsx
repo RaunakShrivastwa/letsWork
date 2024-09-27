@@ -23,8 +23,6 @@ function Home() {
           <img className='img-fluid items img2' src="./www.png" alt="" />
         </div>
       </div>
-
-      <HomeService />
     </div>
   )
 }

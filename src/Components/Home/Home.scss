@@ -4,7 +4,9 @@
     @include setDimension(100vw, 100vh);
     overflow-y: auto;
     position: relative;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &::before {
         position: absolute;
         @include setDimension(rem(170), rem(170));
@@ -43,7 +45,7 @@
 
     .wrapper {
         @include flex("", "", "", 0, 0);
-        height: rem(610);
+        height: rem(710);
         display: flex;
         justify-content: center;
         width: 100%;
@@ -103,24 +105,7 @@
         }
     }
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Keyframes for moving the element up and down
 @keyframes moveUpDown {
@@ -177,7 +162,7 @@
     }
 
     .title {
-        color: green;
+        color: var(--pink);
         font-size: rem(30) !important;
         line-height: rem(40) !important;
     }
@@ -199,12 +184,9 @@
     }
 
     .right {
-        height: auto !important;
+        margin-top: 150px;
         order: 1;
-        width: 100% !important;
-        padding-top: 10px !important;
-        padding-bottom: 40px;
-        margin-bottom: 0 !important;
+       
     }
 
     .wrapper {

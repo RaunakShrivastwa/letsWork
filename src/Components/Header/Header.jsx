@@ -4,7 +4,7 @@ import { AlignCenter, Facebook, Instagram, Linkedin, Mail, Menu, Moon, Phone, Sk
 import { Link } from 'react-router-dom';
 // import {} from 'react-feather'
 
-const Header = ({ setTheme }) => {
+const Header = ({ setTheme,theme}) => {
     const [toggle, setToggle] = useState(false);
 
     const Toggle = () => {
@@ -13,7 +13,7 @@ const Header = ({ setTheme }) => {
     };
     return (
         <>
-            <header className='box_shadow parent sticky-top'>
+            <header className={`box_shadow parent sticky-top ${theme}`}>
                 <div className='header container-lg'>
                     <img className='logo' src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png" alt="" />
                     <div className="header_items_container">
