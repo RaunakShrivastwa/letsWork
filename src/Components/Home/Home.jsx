@@ -6,7 +6,7 @@ function Home() {
     <div className='main_section mb-4'>
 
       <div className='wrapper'>
-        <div className='left mb-5'>
+        <div className='left'>
           <p className='f26 slogn fw-medium'>We build what you love</p>
           <p className='title h1'>Best Web & Mobile App <span style={{ color: 'var(--pink);' }}>Development</span> Company</p>
           <p className='f20 desc'>High Quality Web & Mobile Application Design & Development Solution, that will help you to achieve new heights in your business.</p>
@@ -16,7 +16,7 @@ function Home() {
           </div>
         </div>
 
-        <div className='right mb-5'>
+        <div className='right'>
           <img className='img-fluid items img1' src="./programming.png" alt="" />
           <img className='img-fluid items img1' src="./new-Mask-group-3.webp" alt="" />
           <img className='img-fluid items img2' src="./gardening.png" alt="" />

@@ -2,15 +2,23 @@
 
 .service_container {
     padding: 0 0 0 100px;
+    width: 100%;
 
     .phone {
         height: 500px;
-        background-color: var(--blue);
-        filter: drop-shadow(rem(5) rem(6) rem(6)  rgba(238, 112, 8, 0.585));
+        min-width: 290px;
+        max-width: 290px;
+        background-color: rgba(0, 0, 0, 0.566);
+        filter: drop-shadow(rem(5) rem(6) rem(6) rgba(238, 112, 8, 0.585));
         margin-bottom: 20px;
         padding: rem(10);
         // margin-right: rem(-20);
         position: relative;
+        // transform: rotate(3deg);
+        &:hover {
+            transition: all ease-in-out 0.8s;
+            transform: rotate(0deg);
+        }
 
         .mob_header {
             @include setDimension(100%, 100%);
@@ -23,36 +31,85 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-                background-color: green;
+                justify-content: center;
+                background-color: black;
+                color: var(--white);
+                position: relative;
 
-                .wifi{
+                .wifi {
                     transform: rotate(135deg);
                 }
-               
+
+                .mid_c {
+                    position: absolute;
+                    @include setDimension(rem(120), rem(20));
+                    border-radius: 28px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba(24, 23, 23, 0.595);
+                    z-index: 10;
+                    &:after {
+                        position: absolute;
+                        width: 90px;
+                        height: 4px;
+                        content: "";
+                        background-color: var(--textColor-200);
+                    }
+                }
             }
 
             .screen {
-                background-color: rgb(27, 238, 8);
+                background-color: black;
                 flex-grow: 1;
                 width: 100%;
             }
-            .buttons{
-                @include flex(space-between,center,'',30,0);
+            .buttons {
+                @include flex(center, end, "", 30, 0);
                 height: 40px;
                 width: 100%;
-                background-color: magenta;
-                span{
+                background-color: black;
+                span {
                     width: 40px;
                     height: 3px;
-                    background-color: rgb(11, 42, 212);
+                    background-color: var(--textColor-200);
                     margin-bottom: 10px;
                 }
             }
         }
     }
 
-    .card {
+    .card1 {
         margin-bottom: rem(20);
+        // background-color: var(--bg);
+        flex-grow: 1;
+        @include flex(center, "", "", 40, 0);
+        padding: 0 10px 10px 10px;
+        flex-wrap: wrap;
+
+        .card_items {
+            height: 300px;
+            flex-grow: 1;
+            min-width: rem(290);
+            max-width: 300px;
+            background-color: var(--card-bg);
+            filter: drop-shadow(rem(5) rem(15) rem(5) var(--card-shadow));
+            @include flex(center,center,column,10,10);
+            color: var(--textColor);
+            &:hover{
+                transition: all ease-in-out 0.5s;
+                background-color: var(--pink);
+                color: var(--white);
+                opacity: 0.4;
+            }
+            img{
+                width: 50px;
+            }
+            p{
+                font-size: rem(22);
+                font-weight: 500;
+            }
+        }
     }
 
     .items {
@@ -61,4 +118,11 @@
         background-color: lightcoral;
         padding: 0 rem(195) 0 100px;
     }
+}
+
+.service_text {
+    margin-left: 60px;
+    color: var(--textColor) !important;
+    margin-bottom: 0 !important;
+    filter: drop-shadow(rem(5) rem(5) rem(5) var(--text-shadow));
 }

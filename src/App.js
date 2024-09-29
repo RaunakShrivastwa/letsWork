@@ -10,7 +10,7 @@ import Test from './Components/Root/Root.jsx';
 const App = () => {
   const [theme, setTheme] = useState('dark_theme');
   return (
-    <main className={`main_Container ${theme}`}>
+     <main className={`main_Container ${theme}`}>
       <Router>
         <Header setTheme={setTheme} theme={theme} />
         <Routes>
@@ -18,7 +18,7 @@ const App = () => {
         </Routes>
       </Router>
 
-    // </main>
+    </main>
   ) 
 }
 

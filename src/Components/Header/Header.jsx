@@ -43,7 +43,7 @@ const Header = ({ setTheme,theme}) => {
             </header>
 
             {/* for the menubar */}
-            <div class="offcanvas offcanvas_sidebar box_shadow custome_border offcanvas-end m-3 custome_radius" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class={`offcanvas offcanvas_sidebar box_shadow custome_border offcanvas-end m-3 custome_radius ${theme}`} data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 
                 <div class="offcanvas-body d-flex flex-column p-0">
 

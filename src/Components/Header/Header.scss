@@ -34,6 +34,9 @@
 .parent {
     background-color: var(--header);
     @include setDimension(100vw, rem(71));
+    min-height: rem(71) !important;
+    background: var(--bg-gradient);
+    background: var(--bg);
 
     .header {
         @include setDimension(100%, 100%);
@@ -173,7 +176,7 @@
 
     .header_parent {
         @include setDimension(100%, auto);
-
+        background-color: transparent;
         .side_header {
             height: 100%;
             max-height: 300px;
@@ -187,7 +190,7 @@
         max-height: 95vh;
         overflow-y: auto;
         position: relative;
-
+         background-color: transparent;
         .q_btn {
             min-height: rem(60);
         }
@@ -201,7 +204,6 @@
             @include flex('', center, '', 0, 0);
             padding-left: rem(30);
             z-index: 2;
-            backdrop-filter: blur(rem(30));
 
             &:hover::after {
                 position: absolute;
