@@ -1,8 +1,9 @@
 import React from 'react'
-import Home from '../Home/Home';
 import './Root.scss';
 import HomeService from '../Home/Home_Service/HomeService';
 import WhyUs from '../Home/WhyUs/WhyUs';
+import Home from '../Home/FirstLook/Home';
+import About from '../Home/About/About';
 
 function Root({theme}) {
   return (
@@ -10,6 +11,7 @@ function Root({theme}) {
       <Home />
       <WhyUs />
       <HomeService />
+      <About />
     </div>
   )
 }

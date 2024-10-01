@@ -25,7 +25,7 @@
             max-width: 200px;
             flex-grow: 1;
             height: 200px;
-            filter: drop-shadow(rem(5) rem(15) rem(5) var(--card-shadow));
+            filter: drop-shadow(rem(5) rem(5) rem(5) var(--card-shadow));
 
             @include flex(center, center, column, 6, 10);
         }
@@ -39,6 +39,11 @@
         .left_card {
             width: 100%;
             min-width: unset !important;
+            padding: rem(46) !important;
+            .left_items{
+                max-width: unset !important;
+            }
+
         }
     }
 }

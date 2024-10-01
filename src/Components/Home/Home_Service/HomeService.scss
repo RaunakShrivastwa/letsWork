@@ -12,9 +12,7 @@
         filter: drop-shadow(rem(5) rem(6) rem(6) rgba(238, 112, 8, 0.585));
         margin-bottom: 20px;
         padding: rem(10);
-        // margin-right: rem(-20);
         position: relative;
-        // transform: rotate(3deg);
         &:hover {
             transition: all ease-in-out 0.8s;
             transform: rotate(0deg);
@@ -81,19 +79,18 @@
 
     .card1 {
         margin-bottom: rem(20);
-        // background-color: var(--bg);
         flex-grow: 1;
         @include flex(center, "", "", 40, 0);
         padding: 0 10px 10px 10px;
         flex-wrap: wrap;
 
         .card_items {
-            height: 300px;
+            height: rem(200);
             flex-grow: 1;
             min-width: rem(290);
             max-width: 300px;
             background-color: var(--card-bg);
-            filter: drop-shadow(rem(5) rem(15) rem(5) var(--card-shadow));
+            filter: drop-shadow(rem(5) rem(5) rem(5) var(--card-shadow));
             @include flex(center,center,column,10,10);
             color: var(--textColor);
             &:hover{

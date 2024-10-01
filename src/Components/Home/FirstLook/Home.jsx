@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.scss';
-import HomeService from './Home_Service/HomeService';
 function Home() {
   return (
     <div className='main_section mb-4'>
