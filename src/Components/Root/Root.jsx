@@ -4,14 +4,17 @@ import HomeService from '../Home/Home_Service/HomeService';
 import WhyUs from '../Home/WhyUs/WhyUs';
 import Home from '../Home/FirstLook/Home';
 import About from '../Home/About/About';
+import Roadmap from '../Home/Roadmap/Roadmap';
 
 function Root({theme}) {
   return (
-      <div className={`vw-100 home_wrapper vh-100 bg-primary p-4 overflow-y-auto ${theme}`}>
-      <Home />
+      <div className={`vw-100 home_wrapper py-5 vh-100 bg-primary overflow-y-auto ${theme}`}>
+      {/* <Home />
       <WhyUs />
       <HomeService />
-      <About />
+      <About /> */}
+
+      <Roadmap />
     </div>
   )
 }

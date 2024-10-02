@@ -13,7 +13,7 @@ const Header = ({ setTheme,theme}) => {
     };
     return (
         <>
-            <header className={`box_shadow parent sticky-top ${theme}`}>
+            <header className={`box_shadow parent position-fixed overflow-hidden  ${theme}`}>
                 <div className='header container-lg'>
                     <img className='logo' src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png" alt="" />
                     <div className="header_items_container">

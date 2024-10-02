@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import Test from './Components/Root/Root.jsx';
 
 const App = () => {
-  const [theme, setTheme] = useState('dark_theme');
+  const [theme, setTheme] = useState('light_theme');
   return (
      <main className={`main_Container ${theme}`}>
       <Router>

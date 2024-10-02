@@ -37,6 +37,7 @@
     min-height: rem(71) !important;
     background: var(--bg-gradient);
     background: var(--bg);
+    z-index: 100;
 
     .header {
         @include setDimension(100%, 100%);

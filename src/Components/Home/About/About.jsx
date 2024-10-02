@@ -3,9 +3,9 @@ import './About.scss';
 
 function About() {
     return (
-        <div className='about_container mb-5'>
-            <div className='about_img'>
-                <img className='w-100' src="./home-page.png.webp" alt="" />
+        <div className='about_container mb-5 align-items-center'>
+            <div className='about_img rounded-circle h-100'>
+                <img className='w-100' src="./img.jpg" alt="" />
             </div>
             <div className='about_text'>
                 <p className='about_btn f20'>About Us</p>
