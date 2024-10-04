@@ -9,10 +9,10 @@ import Roadmap from '../Home/Roadmap/Roadmap';
 function Root({theme}) {
   return (
       <div className={`vw-100 home_wrapper py-5 vh-100 bg-primary overflow-y-auto ${theme}`}>
-      {/* <Home />
+      <Home />
       <WhyUs />
       <HomeService />
-      <About /> */}
+      <About />
 
       <Roadmap />
     </div>

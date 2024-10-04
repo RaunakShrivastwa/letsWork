@@ -134,8 +134,9 @@ const Roadmap = () => {
     const [activeTab, setActiveTab] = useState('goal');
 
     return (
-        <div className="roadmap m-0 p-0">
-            <div className='container roadmap1 d-flex justify-content-center align-items-center'>
+        <div className="roadmap m-0">
+            <h1 className='container h_text mt-lg-0 mt-5'>Streamlined Success: Key Steps in Our SDLC Journey</h1>
+            <div className='container-lg roadmap1 d-flex justify-content-center align-items-center'>
                 <div className="roadmap-sidebar custome_radius container box_shadow">
                     {stages.map((stage) => (
                         <div
@@ -158,7 +159,7 @@ const Roadmap = () => {
                             <ul>
                                 <li>
                                     <strong className='fw-bold'>1. User-Centric Design:</strong>
-                                    <p className='f28'>Ensure a seamless and intuitive user experience (UX) across all devices by implementing responsive design principles. The interface should be clean, modern, and easy to navigate, providing users with the information or services they need without unnecessary friction.</p>
+                                    <p className='f12'>Ensure a seamless and intuitive user experience (UX) across all devices by implementing responsive design principles. The interface should be clean, modern, and easy to navigate, providing users with the information or services they need without unnecessary friction. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere perferendis dignissimos saepe molestias libero dolor debitis rerum, ea, minima laudantium voluptatum, quod ex ratione nam numquam error odit iste. Quas magnam nisi nobis nesciunt? Necessitatibus, unde voluptatibus? Voluptatibus, cupiditate. Nemo, id rem necessitatibus assumenda quo repellendus corrupti labore porro quis quidem cum doloribus animi inventore exercitationem officia eos excepturi consequatur autem quae totam blanditiis reprehenderit. Nesciunt hic numquam, similique eveniet totam ut modi facere nostrum sapiente voluptates aliquid debitis exercitationem commodi error. Tenetur recusandae eum distinctio quas debitis, vero, corrupti ipsa voluptatum libero ab fuga consequatur veniam, quo excepturi aliquid? </p>
                                 </li>
                                 <li>
                                     <strong className='fw-bold'>1. User-Centric Design:</strong>
