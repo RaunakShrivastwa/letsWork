@@ -80,15 +80,17 @@
     .card1 {
         margin-bottom: rem(20);
         flex-grow: 1;
-        @include flex(center, "", "", 40, 0);
+        // @include flex(center, "", "", 40, 0);
         padding: 0 10px 10px 10px;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3,2fr);
+        grid-template-rows: repeat(1,2fr);
+        gap: rem(40);
 
         .card_items {
             height: rem(200);
             flex-grow: 1;
-            min-width: rem(290);
-            max-width: 300px;
             background-color: var(--card-bg);
             filter: drop-shadow(rem(5) rem(5) rem(5) var(--card-shadow));
             @include flex(center,center,column,10,10);
@@ -122,4 +124,19 @@
     color: var(--textColor) !important;
     margin-bottom: 0 !important;
     filter: drop-shadow(rem(5) rem(5) rem(5) var(--text-shadow));
+}
+
+@include width-range(0px, $tablet) {
+    .service_container {
+       .card1{
+        grid-template-columns: repeat(2,2fr) !important;
+       }
+    }
+}
+@include width-range(0px, $landscape) {
+    .service_container {
+       .card1{
+        grid-template-columns: repeat(1,2fr) !important;
+       }
+    }
 }

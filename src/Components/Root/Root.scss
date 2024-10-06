@@ -5,4 +5,17 @@
     background: var(--bg);
     padding-top: 0px;
     padding-bottom: 30px;
+    position: relative;
+
+    .social_connect{
+        position: fixed;
+        bottom: 20px;
+        width: 200px;
+        left: 10px;
+z-index: 300;
+        .social{
+            width: 50px;
+            margin-left: 10px;
+        }
+    }
 }
