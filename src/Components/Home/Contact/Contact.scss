@@ -55,8 +55,10 @@
         color: var(--textColor);
         border: none;
         background-color: var(--form-bg);
+        padding: 10px 30px;
         &::placeholder{
             color: var(--textColor-200);
+            // padding: 10px;
         }
       }
   }
@@ -65,8 +67,20 @@
   }
 }
 
-@include width-range(0,$large){
+@include width-range(0,$desktop){
     .contact_container{
         flex-wrap: wrap !important;
+    }
+}
+
+@include width-range(0,$tablet){
+    .contact_container{
+      .left{
+        padding: 7px !important;
+      }
+      padding: 10px;
+        .d_field{
+          flex-wrap: wrap !important;
+        }
     }
 }

@@ -20,8 +20,8 @@ function Contact() {
           </div>
 
           {/* email and phone */}
-          <div class="mb-3 d-flex gap-2">
-            <div className="form-control1 custome_radius">
+          <div class="mb-2 d_field d-flex gap-2">
+            <div className="form-control1 mb-2 custome_radius">
               <input
                 type="email"
                 className="w-100 form-control"
@@ -29,7 +29,7 @@ function Contact() {
                 id="exampleInputPassword1"
               />
             </div>
-            <div className="form-control1 custome_radius d-flex justify-content-center">
+            <div className="form-control1 mb-1 custome_radius d-flex justify-content-center">
               <div class="input-group mb-3 h-100">
                 <select class="input-group-text" id="basic-addon1">
                   <option value="+91">+91</option>
@@ -49,8 +49,8 @@ function Contact() {
           </div>
 
           {/* for the country */}
-          <div class="mb-3 d-flex gap-2 w-100">
-            <div className="form-control1">
+          <div class="mb-2 d_field d-flex gap-2 w-100">
+            <div className="form-control1 mb-2">
               <select
                 name=""
                 id=""
@@ -68,7 +68,7 @@ function Contact() {
               </select>
             </div>
 
-            <div className="form-control1">
+            <div className="form-control1 mb-2">
               <select
                 name=""
                 id=""
