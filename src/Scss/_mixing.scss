@@ -1,4 +1,5 @@
 @import "./Function.scss";
+@import './Base/variables';
 
 @mixin flex($justify, $align, $direction, $gap, $padding) {
   display: flex;
@@ -32,9 +33,21 @@
   color: $textColor;
 }
 
+@mixin rounded_image($width, $height) {
+  width: rem($width);
+  height: rem($height);
+  border-radius: 50%;
+}
+
 @mixin textTruncate($max-width) {
   max-width: $max-width;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@mixin width-range($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
 }

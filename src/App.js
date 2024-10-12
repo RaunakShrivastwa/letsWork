@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './Components/Home/Home';
 import './styles.scss';
+import Header from './Components/Header/Header';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import Test from './Components/Root/Root.jsx';
+import SignIn from './Components/Auth/SignIn/SignIn.jsx';
 
 const App = () => {
+  const [theme, setTheme] = useState('light_theme');
   return (
-    <body className='main_Container bg-danger vw-100 vh-100' >
+     <main className={`main_Container ${theme}`}>
       <Router>
+        <Header setTheme={setTheme} theme={theme} />
         <Routes>
-          <Route exact path='/' element={<Home />} />
+        <Route exact path='/' element={<Test theme={ theme} />} />
+        <Route exact path='/api/auth/signin/user' element={<SignIn />} />
         </Routes>
       </Router>
-
-    </body>
-  )
+     <SignIn />
+    </main>
+  ) 
 }
 
 export default App
