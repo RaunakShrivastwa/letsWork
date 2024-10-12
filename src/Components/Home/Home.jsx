@@ -1,10 +1,8 @@
-import React from 'react'
-import WhyUs from '../WhyUs/WhyUs.jsx';
+import React from 'react';
 
 const Home = () => {
   return (
     <>
-      <WhyUs />
     </>
   )
 }

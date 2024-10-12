@@ -2,9 +2,11 @@
 @import '../mixing';
 
 .f12 {
-    font-size: rem(12);
+    font-size: rem(12) !important;
 }
-
+.f11{
+    font-size: rem(11);
+}
 .f9 {
     font-size: rem(9);
 }
@@ -17,7 +19,7 @@
 }
 
 .f16 {
-    font-size: rem(16);
+    font-size: rem(16) !important;
 }
 .f17 {
     font-size: rem(17);
@@ -27,7 +29,7 @@
     font-size: rem(18);
 }
 .f19 {
-    font-size: rem(19);
+    font-size: rem(19) !important;
 }
 
 .f20 {
@@ -52,24 +54,25 @@
 }
 
 .f30 {
-    font-size: rem(30);
+    font-size: rem(30) !important;
+}
+.f60{
+    font-size: rem(60);
 }
 
-.f50 {
-    font-size: rem(54);
+.f40{
+    font-size: rem(40);
 }
-
-.f54 {
-    font-size: rem(54);
-}
-
 
 // for the icons
 .i24 {
     @include setDimension(rem(18), rem(18));
     @include flex(center, center, "", 0, 0);
 }
-
+.i11 {
+    @include setDimension(rem(11), rem(11));
+    @include flex(center, center, "", 0, 0);
+}
 .i20 {
     @include setDimension(rem(15), rem(15));
     @include flex(center, center, "", 0, 0);
