@@ -9,11 +9,12 @@ import OurArea from "../Home/OurArea/OurArea";
 import Blog from "../Blog/Blog";
 import Contact from "../Home/Contact/Contact";
 import SignIn from "../Auth/SignIn/SignIn";
+import Footer from "../Footer/Footer";
 
 function Root({ theme }) {
   return (
     <div
-      className={`vw-100 home_wrapper py-5 vh-100 bg-primary overflow-y-auto ${theme}`}
+      className={`vw-100 home_wrapper vh-100 bg-primary overflow-y-auto ${theme}`}
     >
       <div className="social_connect">
         <div className="social_connect_item">
@@ -31,8 +32,7 @@ function Root({ theme }) {
       <OurArea />
       <Blog />
       <Contact />
-
-      <SignIn />
+      <Footer />
     </div>
   );
 }
