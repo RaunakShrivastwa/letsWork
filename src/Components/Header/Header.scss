@@ -210,6 +210,8 @@
                 position: absolute;
                 cursor: pointer;
                 @include setDimension(97%, 100%);
+                height: 50px !important;
+                
                 @include flex('', center, '', 0, 0);
                 padding-left: rem(16);
                 font-weight: 500;
@@ -220,6 +222,9 @@
                 border-bottom-right-radius: rem(30);
                 z-index: -1;
                 content: "";
+                .span{
+                    color: red !important;
+                }
             }
         }
 

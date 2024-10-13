@@ -18,32 +18,32 @@ function HomeService() {
                    
                     <div className="card_items custome_radius box_shadow">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
-                        <p>Web</p>
+                        <p>Ecommerce</p>
                         <p>Development</p>
                     </div>
 
                      <div className="card_items custome_radius box_shadow">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
-                        <p>Web</p>
-                        <p>Development</p>
+                        <p>Website UI/UX</p>
+                        <p>Design</p>
                     </div>
 
                     <div className="card_items custome_radius box_shadow">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
-                        <p>Web</p>
-                        <p>Development</p>
+                        <p>API Integration</p>
+                        <p>Services</p>
                     </div>
 
                     <div className="card_items custome_radius box_shadow">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
-                        <p>Web</p>
-                        <p>Development</p>
+                        <p>Video/Image</p>
+                        <p>Editing</p>
                     </div>
 
                     <div className="card_items custome_radius box_shadow">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
-                        <p>Web</p>
-                        <p>Development</p>
+                        <p>Courses</p>
+                        <p>Bootcamp</p>
                     </div>
 
                 </div>

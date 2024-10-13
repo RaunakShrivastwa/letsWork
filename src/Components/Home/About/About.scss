@@ -3,6 +3,7 @@
 .about_container {
     @include flex("", '', "", 60, 0);
     padding: 0 rem(100) 0 100px;
+    min-height: 100vh;
     // flex-wrap: wrap;
 
 

@@ -32,11 +32,14 @@
   --c2: #4e4f51;
   --c3: #3c3c3c;
    --header1: rgba(39, 37, 37, 0.929);
+   --form-bg: rgba(0, 0, 0, 0.666);
 }
 
 // for the Light
 .light_theme {
    --header1: rgba(255, 255, 255, 0.927);
+   --form-bg: rgba(209, 221, 209, 0.589);
+   --textColor-200:rgba(0, 0, 0, 0.614);
   --c1: #f7f7f7;
   --c2: #e0e0e0;
   --c3: #c1c1c1;
@@ -44,7 +47,6 @@
   --card-shadow: rgba(93, 92, 92, 0.585);
   --text-shadow: rgba(15, 13, 12, 0.585);
   --textColor: #0d3d65;
-  --textColor-200: rgba(255, 255, 255, 0.653);
   --title-desc: blue;
   --header: white;
   --bg-gradient: rgb(243, 236, 210);
@@ -55,4 +57,5 @@
   --dot-bg: rgba(238, 83, 83, 0.582);
   --after-fill: rgb(11, 236, 206);
   --before-fill: rgb(243, 82, 8);
+  --textColor:black;
 }
