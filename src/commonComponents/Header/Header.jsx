@@ -30,13 +30,13 @@ const Header = ({ setTheme, theme }) => {
         className={`box_shadow parent position-fixed overflow-hidden  ${theme}`}
       >
         <div className="header container-lg">
-          <Link to='/'>
+          <Link to="/">
             <img
               className="logo"
               src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png"
               alt=""
             />
-          </Link >
+          </Link>
           <div className="header_items_container">
             <span className="icons box_shadow phone">
               <Phone className="i24" />
@@ -130,12 +130,20 @@ const Header = ({ setTheme, theme }) => {
           </div>
 
           <div className="sidebar_container w-100 d-flex flex-column ">
-            <Link className=" span signin">SignIn</Link>
+            <Link
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              className=" span signin"
+            >
+              SignIn
+            </Link>
             <Link className="span signup me-5">SignUp</Link>
             <Link to={"/api/letswork/about"} className="span signup me-5">
               About Us
             </Link>
-            <Link className="span signup me-5">Our Services</Link>
+            <Link to="/api/letswork/services" className="span signup me-5">
+              Our Services
+            </Link>
             <div className="mt-3 d-flex w-100 q_btn gap-4 justify-content-center">
               <button className="quotes get_quotes btn custome_radius f19">
                 Get Quotes

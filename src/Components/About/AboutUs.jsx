@@ -1,15 +1,16 @@
 import React from "react";
 import { Linkedin, Twitter, Github } from "lucide-react";
 import "./About.scss";
-import Banner from "./Banner";
+import Banner from "../../commonComponents/Banner/Banner";
 import ServiceCard from "./ServiceCard";
 import TeamMember from "./TeamMember";
 import { Facebook, GitHub, Instagram, Phone } from "react-feather";
-import Footer from "../Footer/Footer";
+import Footer from "../../commonComponents/Footer/Footer";
+import WhyChhoseUs from "./WhyChhoseUs";
 
-<Banner />;
+{/* <Banner />;
 <ServiceCard />;
-<TeamMember />;
+<TeamMember />; */}
 
 const ScrollableSection = ({ title, items, renderItem }) => (
   <section className="mb-5">
@@ -158,7 +159,11 @@ const AboutUs = () => {
 
   return (
     <div className="about-us-page vh-100 overflow-y-auto mt-4">
-      <Banner />
+      <Banner
+        image={"https://wallpapercave.com/wp/wp2471711.jpg"}
+        title={"Welcome to Let's Work"}
+        lead={"Empowering Your Digital Journey with Cutting-Edge Solutions"}
+      />
       <div className=" py-5 p-3">
         <section className="about-section mb-5">
           <h2 className="section-title text-center mb-4">About Let's Work</h2>
@@ -174,24 +179,7 @@ const AboutUs = () => {
               <div className="card border-0 bg-transparent box_shadow mb-2">
                 <div className="card-body why_choose_lets_work">
                   <h3 className="h4 mb-3">Why Choose Lets'work?</h3>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
-                      Comprehensive suite of digital services under one roof
-                    </li>
-                    <li className="list-group-item">
-                      Team of experts with diverse backgrounds and skill sets
-                    </li>
-                    <li className="list-group-item">
-                      Personalized approach tailored to your specific needs
-                    </li>
-                    <li className="list-group-item">
-                      Commitment to using the latest technologies and best
-                      practices
-                    </li>
-                    <li className="list-group-item">
-                      Passion for delivering high-quality, innovative solutions
-                    </li>
-                  </ul>
+                  <WhyChhoseUs />
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@
     @include setDimension(auto, rem(42));
     color: var(--white);
     position: relative;
-    z-index: 20;
+    z-index: 50 !important;
 
     &:hover {
         display: flex;

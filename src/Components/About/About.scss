@@ -4,8 +4,8 @@
   background: var(--bg-gradient);
   background: var(--bg);
   color: var(--textColor);
-  ul li {
-    color: var(--textColor);
+  .list-group-flush li {
+    color: var(--textColor) !important;
   }
 }
 
