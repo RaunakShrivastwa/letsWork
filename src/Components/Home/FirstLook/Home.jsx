@@ -1,22 +1,10 @@
-import React from "react";
-import "./Home.scss";
-import Spline from "@splinetool/react-spline";
+uimport React from "react";
+import "./Home.scss"
 import zIndex from "@mui/material/styles/zIndex";
 function Home() {
   return (
     <div className="main_section mb-4 position-relative">
-      <main
-        className="position-absolute"
-        style={{
-          top: "0",
-          zIndex: "2",
-          width: "100vw",
-          height: "100vh",
-          opacity: "0.1",
-        }}
-      >
-        <Spline scene="https://prod.spline.design/QJux19H-ZNmuB1Dm/scene.splinecode" />
-      </main>
+      
       <div className="wrapper">
         <div className="left">
           <p className="f26 slogn fw-medium">We build what you love</p>
