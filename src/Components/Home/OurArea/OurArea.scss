@@ -43,7 +43,7 @@
 }
 
 .box:hover{
-    z-index: 200;
+    z-index: 10 !important;
     animation: move 1s forwards;
     object-fit: contain !important;
     

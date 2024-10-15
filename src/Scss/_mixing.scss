@@ -1,5 +1,5 @@
 @import "./Function.scss";
-@import './Base/variables';
+@import "./Base/variables";
 
 @mixin flex($justify, $align, $direction, $gap, $padding) {
   display: flex;
@@ -44,6 +44,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@mixin lineClamp($max-height, $showline) {
+  max-height: $max-height !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $showline !important;
+  -webkit-box-orient: vertical !important;
+  text-overflow: ellipsis !important;
 }
 
 @mixin width-range($min, $max) {

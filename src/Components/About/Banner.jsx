@@ -9,7 +9,7 @@ const Banner = () => (
       alt=""
     />
     <div className="position-absolute">
-      <h1 className="display-4 fw-bold">Welcome to Let's Work</h1>
+      <h1 className="display-4 fw-bold"></h1>
       <p className="lead">
         Empowering Your Digital Journey with Cutting-Edge Solutions
       </p>

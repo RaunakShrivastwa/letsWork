@@ -8,8 +8,10 @@ import Roadmap from "../Home/Roadmap/Roadmap";
 import OurArea from "../Home/OurArea/OurArea";
 import Blog from "../Blog/Blog";
 import Contact from "../Home/Contact/Contact";
-import SignIn from "../Auth/SignIn/SignIn";
-import Footer from "../Footer/Footer";
+import SignIn from "../../authComponent/SignIn/SignIn";
+import Footer from "../../commonComponents/Footer/Footer";
+import Services from "../Services/Services";
+import Testonomial from "../Home/Testonomial/Testonomial";
 
 function Root({ theme }) {
   return (
@@ -30,6 +32,7 @@ function Root({ theme }) {
       <About />
       <Roadmap />
       <OurArea />
+      <Testonomial />
       <Blog />
       <Contact />
       <Footer />
