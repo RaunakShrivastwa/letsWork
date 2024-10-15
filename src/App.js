@@ -8,22 +8,24 @@ import Test from './Components/Root/Root.jsx';
 import SignIn from './Components/Auth/SignIn/SignIn.jsx';
 import About from './Components/About/AboutUs.jsx';
 import Footer from './Components/Footer/Footer.jsx';
+import BlogPage from './Components/BlogPage/BlogPage.jsx';
 
 const App = () => {
   const [theme, setTheme] = useState('light_theme');
   return (
-     <main className={`main_Container ${theme}`}>
+    <main className={`main_Container ${theme}`}>
       <Router>
         <Header setTheme={setTheme} theme={theme} />
         <Routes>
-        <Route exact path='/' element={<Test theme={ theme} />} />
-        <Route exact path='/api/auth/signin/user' element={<SignIn />} />
-        <Route exact path='/api/letswork/about' element={<About />} />
+          <Route exact path='/' element={<Test theme={theme} />} />
+          <Route exact path='/api/auth/signin/user' element={<SignIn />} />
+          <Route exact path='/api/letswork/about' element={<About />} />
+          <Route exact path='/api/letswork/blog' element={<BlogPage />} />
         </Routes>
       </Router>
-     <SignIn />
+      <SignIn />
     </main>
-  ) 
+  )
 }
 
 export default App

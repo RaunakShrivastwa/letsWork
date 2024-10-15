@@ -146,7 +146,7 @@ const Header = ({ setTheme, theme }) => {
             </div>
             <Link className="span signup me-5">Our Work</Link>
             <Link className="span signup me-5">Career</Link>
-            <Link className="span signup me-5">Blogs</Link>
+            <Link className="span signup me-5" to={"/api/letswork/blog"} >Blogs</Link>
             <Link className="span signup me-5">Project Live Status</Link>
             <Link className="span signup me-5">Contacts</Link>
             <Link className="span signup me-5">Free API</Link>
