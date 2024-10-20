@@ -6,12 +6,9 @@ import {
   Instagram,
   Linkedin,
   Mail,
-  Menu,
   Moon,
   Phone,
-  SkipBack,
   Sun,
-  Twitter,
   X,
 } from "react-feather";
 import { Link } from "react-router-dom";
@@ -153,7 +150,7 @@ const Header = ({ setTheme, theme }) => {
               </button>
             </div>
             <Link className="span signup me-5">Our Work</Link>
-            <Link className="span signup me-5">Career</Link>
+            <Link className="span signup me-5" to={"/api/letswork/career"}>Career</Link>
             <Link className="span signup me-5" to={"/api/letswork/blog"} >Blogs</Link>
             <Link className="span signup me-5">Project Live Status</Link>
             <Link className="span signup me-5">Contacts</Link>
