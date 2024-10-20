@@ -33,9 +33,10 @@
   --c3: #3c3c3c;
    --header1: rgba(39, 37, 37, 0.929);
    --form-bg: rgba(0, 0, 0, 0.666);
+   --card-border:#282b2e;
 }
 
-// for the Light
+// for the Ligh
 .light_theme {
    --header1: rgba(255, 255, 255, 0.927);
    --form-bg: rgba(209, 221, 209, 0.589);
@@ -58,4 +59,5 @@
   --after-fill: rgb(11, 236, 206);
   --before-fill: rgb(243, 82, 8);
   --textColor:black;
+  --card-border:#f0f2e9;
 }
