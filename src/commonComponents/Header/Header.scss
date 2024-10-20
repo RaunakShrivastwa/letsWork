@@ -89,23 +89,31 @@
         cursor: pointer;
 
         &.phone {
-            background-color: var(--blue);
+            color: var(--white) !important;
+            background-color: var(--blue) !important;
         }
 
         &.mail {
-            background-color: var(--pink);
+            color: var(--white) !important;
+            background-color: var(--pink) !important;
         }
 
         &.instagram {
-            background: linear-gradient(to right, #f58529, #f77737, #d62976, #962fbf);
+            color: var(--white) !important;
+            background: linear-gradient(to right, #f58529, #f77737, #d62976, #962fbf) !important;
         }
 
         &.facebook {
-            background-color: #4267b2;
+            background-color: #4267b2 !important;
+        }
+        &.linkedin {
+            background-color: #4267b2 !important;
+            color: var(--white) !important;
         }
 
-        &.linkedin {
-            background-color: #0077b5;
+        &.github {
+            background-color: black !important;
+            color: var(--white) !important;
         }
     }
 

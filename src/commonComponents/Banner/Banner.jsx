@@ -9,7 +9,7 @@ function Banner({image,title,lead}) {
         src={image}
         alt="Banner of lets Work"
       />
-      <div className="position-absolute">
+      <div className="position-absolute px-3">
         <h1 className="display-4 fw-bold">{title}</h1>
         <p className="lead">
           {lead}
