@@ -5,9 +5,9 @@ import Carosel from './Carosel';
 
 function HomeService() {
     return (
-        <div className='d-flex flex-column'>
+        <div className='d-flex flex-column container '>
             <h2 className='service_text'>Our Services</h2>
-            <div className='service_container p-5 d-flex gap-5'>
+            <div className='service_container p-4 d-flex gap-5'>
                 <div className='card1'>
 
                     <div className="card_items custome_radius box_shadow">
@@ -22,13 +22,13 @@ function HomeService() {
                         <p>Development</p>
                     </div>
 
-                     <div className="card_items custome_radius box_shadow">
+                     <div className="card_items custome_radius box_shadow mb-2">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
                         <p>Website UI/UX</p>
                         <p>Design</p>
                     </div>
 
-                    <div className="card_items custome_radius box_shadow">
+                    <div className="card_items custome_radius box_shadow mb-2">
                         <img src="https://nextbigtechnology.com/wp-content/uploads/2023/06/Web.png" alt="" />
                         <p>API Integration</p>
                         <p>Services</p>

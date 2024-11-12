@@ -8,7 +8,7 @@ function About() {
           <img className="w-100" src="./img.jpg" alt="" />
         </div>
         <div className="about_text">
-          <p className="about_btn f20">About Us</p>
+          <p className="about_btn f30">About Us</p>
           <h2>Transforming Core Business Activities Digitally</h2>
           <p className="f20">
             As a client, you are at the center of everything I do. I understand

@@ -3,7 +3,7 @@ import "./Home.scss"
 import zIndex from "@mui/material/styles/zIndex";
 function Home() {
   return (
-    <div className="main_section mb-4 position-relative">
+    <div className="main_section position-relative">
       
       <div className="wrapper">
         <div className="left">
@@ -22,7 +22,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="right">
+        <div className="right mt-5">
           <img
             className="img-fluid items img1"
             src="./programming.png"
