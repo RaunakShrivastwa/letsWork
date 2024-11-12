@@ -3,7 +3,7 @@ import './WhyUs.scss';
 
 function WhyUs() {
     return (
-      <div className="mb-4 why_us_container">
+      <div className="mb-4 why_us_container container">
         <div className="right_text">
           <h1 className="f40">
             Why <br />
