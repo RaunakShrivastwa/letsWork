@@ -66,7 +66,12 @@ const Header = ({ setTheme, theme }) => {
             >
               SignIn
             </span>
-            <span className="span signup me-5">SignUp</span>
+            <Link
+              to="/api/letswork/register/account"
+              className="span signup me-5"
+            >
+              SignUp
+            </Link>
             <img
               className="logo box_shadow d-none"
               src="https://cdn-icons-png.flaticon.com/128/16683/16683419.png"
