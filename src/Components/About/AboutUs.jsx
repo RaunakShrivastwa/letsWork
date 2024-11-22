@@ -8,10 +8,6 @@ import { Facebook, GitHub, Instagram, Phone } from "react-feather";
 import Footer from "../../commonComponents/Footer/Footer";
 import WhyChhoseUs from "./WhyChhoseUs";
 
-{/* <Banner />;
-<ServiceCard />;
-<TeamMember />; */}
-
 const ScrollableSection = ({ title, items, renderItem }) => (
   <section className="mb-5">
     <h2 className="section-title text-center mb-4">{title}</h2>
