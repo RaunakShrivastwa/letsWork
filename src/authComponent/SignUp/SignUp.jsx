@@ -6,46 +6,6 @@ import WhyChhoseUs from "../../commonComponents/Footer/Footer";
 import Footer from "../../commonComponents/Footer/Footer";
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    department: "",
-    position: "",
-    linkedin: "",
-    twitter: "",
-    github: "",
-    imagePreview: null,
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData((prev) => ({
-          ...prev,
-          imagePreview: reader.result,
-        }));
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <div className="our-SignUp vh-100 overflow-y-auto register_container">
       {/* Main Banner */}
@@ -60,13 +20,13 @@ const SignUp = () => {
       <div className="container mt-5 mb-4">
         <div className="row">
           {/* Left Section - Image and Social Media */}
-          <div className="col-md-4 mb-4">
-            <div className="card reg_left">
+          <div className="col-md-4 mb-4 p-2">
+            <div className="card reg_left custome_radius box_shadow">
               <div className="card-body text-center">
                 <div className="position-relative mb-4 d-inline-block">
-                  {formData.imagePreview ? (
+                 
                     <img
-                      src={formData.imagePreview}
+                      src={'jjjj'}
                       alt="Employee"
                       className="rounded-circle"
                       style={{
@@ -75,14 +35,14 @@ const SignUp = () => {
                         objectFit: "cover",
                       }}
                     />
-                  ) : (
+                  
                     <div
                       className="rounded-circle  box_shadow m-1 custome_border d-flex align-items-center justify-content-center"
                       style={{ width: "200px", height: "200px" }}
                     >
                       <Camera size={48} className="text-secondary" />
                     </div>
-                  )}
+                  
                   <div className="position-absolute bottom-0 end-0">
                     <label className="btn  btn-sm rounded-circle custome_border">
                       <Plus />
@@ -91,7 +51,6 @@ const SignUp = () => {
                         type="file"
                         className="d-none"
                         accept="image/*"
-                        onChange={handleImageChange}
                       />
                     </label>
                   </div>
@@ -105,8 +64,7 @@ const SignUp = () => {
                       className="form-control box_shadow reg_left custome_border"
                       placeholder="LinkedIn URL"
                       name="linkedin"
-                      value={formData.linkedin}
-                      onChange={handleInputChange}
+                      
                     />
                   </div>
 
@@ -117,8 +75,7 @@ const SignUp = () => {
                       className="form-control reg_left"
                       placeholder="Twitter URL"
                       name="twitter"
-                      value={formData.twitter}
-                      onChange={handleInputChange}
+                     
                     />
                   </div>
 
@@ -129,8 +86,6 @@ const SignUp = () => {
                       className="form-control reg_left"
                       placeholder="Facebook URL"
                       name="fb"
-                      value={formData.github}
-                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -140,10 +95,10 @@ const SignUp = () => {
 
           {/* Right Section - Registration Form */}
           <div className="col-md-8">
-            <div className="card">
-              <div className="card-body">
+            <div className="card bg-transparent border-0 p-2">
+              <div className="card-body reg_right custome_radius box_shadow">
                 <h3 className="card-title mb-4">Employee Registration</h3>
-                <form onSubmit={handleSubmit}>
+                <form>
                   <div className="row">
                     <div className="col-md-6 mb-3">
                       <input
@@ -151,8 +106,6 @@ const SignUp = () => {
                         className="form-control"
                         name="firstName"
                         placeholder="First Name"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
                         required
                       />
                     </div>
@@ -162,8 +115,6 @@ const SignUp = () => {
                         placeholder="Last Name"
                         className="form-control"
                         name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
                         required
                       />
                     </div>
@@ -175,8 +126,6 @@ const SignUp = () => {
                       placeholder="Email"
                       className="form-control"
                       name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -187,8 +136,6 @@ const SignUp = () => {
                       placeholder="Password"
                       className="form-control"
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -199,8 +146,6 @@ const SignUp = () => {
                       placeholder="Confirm Password"
                       className="form-control"
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -210,8 +155,6 @@ const SignUp = () => {
                       <select
                         className="form-select"
                         name="department"
-                        value={formData.department}
-                        onChange={handleInputChange}
                         required
                       >
                         <option value="">Select Department</option>
@@ -226,11 +169,9 @@ const SignUp = () => {
                   <div className="mb-3">
                     <textarea
                       placeholder="Address..."
-                      className="form-control"
+                      className="form-control area"
                       rows={"7"}
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
                       required
                     />
                   </div>
