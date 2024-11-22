@@ -139,7 +139,7 @@ const Header = ({ setTheme, theme }) => {
             >
               SignIn
             </Link>
-            <Link className="span signup me-5">SignUp</Link>
+            <Link to='/api/letswork/register/account' className="span signup me-5">SignUp</Link>
             <Link to={"/api/letswork/about"} className="span signup me-5">
               About Us
             </Link>
