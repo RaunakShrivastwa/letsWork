@@ -1,0 +1,44 @@
+@import "../styles.scss";
+
+.dashboard_con {
+    background: var(--bg-gradient);
+  background: var(--bg);
+  height: 100vh;
+  @include flex("", "", "", 0, 0);
+
+  .Dsidebar {
+    &.hide{
+       width: rem(70);
+       .header,.footer{
+        justify-content: center;
+       }
+    }
+
+    &.show{
+       width: rem(320);
+       .header,.footer{
+         justify-content: space-between;
+       }
+    }
+    max-height: 100vh;
+    @include flex(center, center, column, 0, 0);
+
+    .header {
+      @include setDimension(100%, rem(60));
+      background-color: var(--form-bg);
+    }
+
+    .sideBody {
+      flex-grow: 1;
+      width: 100%;
+      background-color: var(--before-fill);
+      backdrop-filter: blur(4px) !important;
+    }
+
+    .footer {
+      @include setDimension(100%, rem(60));
+      background-color: var(--form-bg);
+    }
+    
+  }
+}
