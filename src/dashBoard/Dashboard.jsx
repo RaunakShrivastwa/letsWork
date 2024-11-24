@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
-import { Menu, Sun } from "react-feather";
+import Sidebar from "./sidebar/Sidebar";
+import { Menu } from "react-feather";
 
 const Dashboard = () => {
-  const [width, setWidth] = useState("350px");
-  const [toggle, setToggle] = useState(true);
-
-  const hideSideBar = () => {
-    setToggle(!toggle);
-  };
 
   return (
     <div className="dashboard_con">
-      <div className={`Dsidebar box_shadow ${toggle ? "show" : "hide"}`}>
-        <div className="header d-flex align-items-center px-2">
-          <img
-            width={"40px"}
-            height={"40px"}
-            className={`rounded-circle ${toggle ? "d-block" : "d-none"}`}
-            src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png"
-            alt=""
-          />
-          <Menu onClick={hideSideBar} />
-        </div>
-        <div className="sideBody">Body</div>
+      <Sidebar />
 
-        <div className="footer d-flex  align-items-center px-2">
-          <span className={`${toggle ? "d-block" : "d-none"}`}>Back</span>
-          <Sun />
-        </div>
+      <div className="Dbody w-100 m-1">
+        <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
+          <img src="/programming.png" className="box_shadow p-1 custome_border m-1" alt="" />
+          <Menu type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" />
+        </nav>
       </div>
 
-      <div className="Dbody">Content</div>
+
+      {/* canvas */}
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+      </div>
     </div>
   );
 };
