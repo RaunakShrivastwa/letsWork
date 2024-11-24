@@ -22,6 +22,53 @@
         border-radius: 50%;
       }
     }
+
+    .wizard{
+      height: 70px;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .wrapper_wizard{
+        width: 100%;
+        height:100%;
+        padding: 0px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: pink;
+        .text{
+          width: 100%;
+          display: flex;
+          justify-content: space-between !important;
+          align-items: center;
+        }
+
+        .circle{
+          width: 100%;
+          display: flex;
+          position: relative;
+          height: 10px;
+          background-color: green;
+          display: flex;
+          justify-content: space-between;
+
+          .t_circle{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: yellow;
+          }
+        }
+
+
+      }
+    }
+
   }
 
   .offcanvas-start{
