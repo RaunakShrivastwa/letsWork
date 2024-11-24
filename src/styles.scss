@@ -52,6 +52,9 @@ input,textarea,select,option{
 }
 
 a{
-  // color: white !important;
   text-decoration: none !important;
+}
+
+.custome_border{
+   border: 1px solid rgba(188, 188, 188, 0.658);
 }

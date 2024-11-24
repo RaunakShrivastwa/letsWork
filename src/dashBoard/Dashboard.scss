@@ -4,41 +4,39 @@
     background: var(--bg-gradient);
   background: var(--bg);
   height: 100vh;
-  @include flex("", "", "", 0, 0);
+  @include flex("", "", "", 10, 0);
 
-  .Dsidebar {
-    &.hide{
-       width: rem(70);
-       .header,.footer{
-        justify-content: center;
-       }
-    }
-
-    &.show{
-       width: rem(320);
-       .header,.footer{
-         justify-content: space-between;
-       }
-    }
-    max-height: 100vh;
-    @include flex(center, center, column, 0, 0);
-
-    .header {
-      @include setDimension(100%, rem(60));
-      background-color: var(--form-bg);
-    }
-
-    .sideBody {
-      flex-grow: 1;
-      width: 100%;
-      background-color: var(--before-fill);
-      backdrop-filter: blur(4px) !important;
-    }
-
-    .footer {
-      @include setDimension(100%, rem(60));
-      background-color: var(--form-bg);
-    }
-    
+  .side_large{
+    min-width: rem(260);
+       max-width: rem(260);
   }
+
+  .Dbody{
+    max-height: 100vh;
+    overflow-y: auto;
+    nav{
+      background-color: var(--header1);
+      img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .offcanvas-start{
+      min-width: rem(270) !important;
+       max-width: rem(270) !important;
+       padding: 0 !important;
+       margin: 0 !important;
+       background-color: transparent !important;
+       border: none;
+
+       .offcanvas-body{
+        padding: 0 !important;
+       margin: 0 !important;
+       overflow: hidden !important;
+       border: none !important;
+       }
+    }
 }

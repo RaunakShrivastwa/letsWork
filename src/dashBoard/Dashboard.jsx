@@ -1,37 +1,46 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
-import { Menu, Sun } from "react-feather";
+import Sidebar from "./sidebar/Sidebar";
+import { Menu } from "react-feather";
 
 const Dashboard = () => {
-  const [width, setWidth] = useState("350px");
-  const [toggle, setToggle] = useState(true);
-
-  const hideSideBar = () => {
-    setToggle(!toggle);
-  };
 
   return (
     <div className="dashboard_con">
-      <div className={`Dsidebar box_shadow ${toggle ? "show" : "hide"}`}>
-        <div className="header d-flex align-items-center px-2">
+      <div className="side_large  d-none d-lg-flex d-xl-flex d-md-flex">
+        <Sidebar />
+      </div>
+      {/* <Sidebar /> */}
+
+      <div className="Dbody w-100 m-1">
+        <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
           <img
-            width={"40px"}
-            height={"40px"}
-            className={`rounded-circle ${toggle ? "d-block" : "d-none"}`}
-            src="https://cdn-icons-png.flaticon.com/256/8904/8904881.png"
+            src="/programming.png"
+            className="box_shadow p-1 custome_border m-1"
             alt=""
           />
-          <Menu onClick={hideSideBar} />
-        </div>
-        <div className="sideBody">Body</div>
-
-        <div className="footer d-flex  align-items-center px-2">
-          <span className={`${toggle ? "d-block" : "d-none"}`}>Back</span>
-          <Sun />
-        </div>
+          <Menu
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling"
+          />
+        </nav>
       </div>
 
-      <div className="Dbody">Content</div>
+      {/* canvas */}
+      <div
+        class="offcanvas offcanvas-start p-0"
+        data-bs-scroll="true"
+        data-bs-backdrop="false"
+        tabindex="-1"
+        id="offcanvasScrolling"
+        aria-labelledby="offcanvasScrollingLabel"
+      >
+        <div class="offcanvas-body">
+            <Sidebar />
+        </div>
+      </div>
     </div>
   );
 };
