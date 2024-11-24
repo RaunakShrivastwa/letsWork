@@ -21,6 +21,7 @@
 
     .header {
       @include setDimension(100%, rem(60));
+      z-index: 100 !important;
       background-color: var(--form-bg);
     }
 
@@ -29,21 +30,47 @@
       width: 100%;
       background-color: var(--header1);
       backdrop-filter: blur(4px) !important;
-      max-height: calc(100vh - rem(120));
       overflow-y: auto;
       // @include flex(center,'','',0,10);
-      padding: 10px;
+      // padding: 10px;
       ul{
         width: 100%;
-        @include flex('','',column,30,0);
+        @include flex('','',column,10,0);
         .li_profile{
           @include flex(center,center,'',10,0);
           .profile{
-            @include setDimension(rem(140), rem(140));
+            @include setDimension(rem(100), rem(100));
             border-radius: 50%;
           }
         }
-        li{
+
+        li:not(:first-child){
+              min-height: rem(50);
+              position: relative;
+              z-index: 1;
+              &:hover{
+                color: var(--white);
+                width: 97%;
+                select{
+                  color: var(--white) !important;
+                }
+                &::after{
+                position: absolute;
+                
+                height: 100%;
+                z-index: -1;
+                content: '';
+                left: 0;
+                border-top-right-radius: rem(25);
+                border-bottom-right-radius: rem(25);
+                
+                animation: move 0.5s forwards;
+              }
+              }
+
+              
+        }
+        li{ 
           @include flex('',center,'',10,0);
           &.hide_text{
             justify-content: center !important;
@@ -59,10 +86,15 @@
       }
     }
 
-    .summary-bg{
+    .summary-bg,option{
       background-color: var(--card-shadow);
       color: var(--textColor);
+      ul{
+        padding: 10px !important;
+        gap: rem(5) !important;
+      }
      li{
+      padding: 0 !important;
         .ryt{
           color: var(--green) !important;
         }
@@ -72,9 +104,24 @@
      }
     }
 
+    select{
+      background-color: transparent !important;
+    }
+
     .footer {
       @include setDimension(100%, rem(60));
       background-color: var(--form-bg);
     }
     
+  }
+
+  @keyframes move {
+    0%{
+      background-color: rgb(116, 116, 193);
+      width: 10%;
+    }
+    100%{
+      background-color: rgb(116, 116, 193);
+      width: 97%;
+    }
   }

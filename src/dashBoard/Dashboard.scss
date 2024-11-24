@@ -6,6 +6,11 @@
   height: 100vh;
   @include flex("", "", "", 10, 0);
 
+  .side_large{
+    min-width: rem(260);
+       max-width: rem(260);
+  }
+
   .Dbody{
     max-height: 100vh;
     overflow-y: auto;
@@ -18,4 +23,20 @@
       }
     }
   }
+
+  .offcanvas-start{
+      min-width: rem(270) !important;
+       max-width: rem(270) !important;
+       padding: 0 !important;
+       margin: 0 !important;
+       background-color: transparent !important;
+       border: none;
+
+       .offcanvas-body{
+        padding: 0 !important;
+       margin: 0 !important;
+       overflow: hidden !important;
+       border: none !important;
+       }
+    }
 }
