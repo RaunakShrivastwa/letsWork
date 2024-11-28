@@ -3,14 +3,16 @@ import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
 import { Menu } from "react-feather";
 import Wizard from "./wizard/Wizard";
+import Wizardlist from "./wizard/Wizardlist";
+import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
 
 const Dashboard = () => {
   return (
     <div className="dashboard_con">
       {/* <Sidebar /> */}
-      {/* <div className="side_large  d-none d-lg-flex d-xl-flex d-md-flex"> */}
+      <div className="d-none d-lg-flex d-xl-flex d-md-flex">
       <Sidebar />
-      {/* </div> */}
+      </div>
 
       {/* for the Body */}
       <div className="Dbody flex-grow-1 m-1">
@@ -30,6 +32,10 @@ const Dashboard = () => {
         </nav>
         {/* for the status of Project */}
        <Wizard />
+       <div className="wizard_con d-flex">
+        <ProjectInfo />
+        {/* <Wizardlist /> */}
+       </div>
       </div>
 
       {/* canvas */}

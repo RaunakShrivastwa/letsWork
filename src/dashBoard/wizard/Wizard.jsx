@@ -13,7 +13,8 @@ const Wizard = () => {
     { title: "Maintains", status: "pending" },
   ];
   return (
-    <div className="wizard">
+    <div className="W-container">
+      <div className="wizard">
       <div className="text_container">
         {sdlc.map((item) => (
           <div className="text_item">{item?.title}</div>
@@ -28,6 +29,7 @@ const Wizard = () => {
             ${item?.status == "Done" ? "done" : `${item.status == "proccessing" ? "proccessing" : "pending"}`}`}
           ></div>
         ))}
+      </div>
       </div>
     </div>
   );
