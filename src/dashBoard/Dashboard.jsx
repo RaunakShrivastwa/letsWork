@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
 import { Menu } from "react-feather";
+import Wizard from "./wizard/Wizard";
 
 const Dashboard = () => {
-
   return (
     <div className="dashboard_con">
-
       {/* <Sidebar /> */}
-      <div className="side_large  d-none d-lg-flex d-xl-flex d-md-flex">
-        <Sidebar />
-      </div>
-      
+      {/* <div className="side_large  d-none d-lg-flex d-xl-flex d-md-flex"> */}
+      <Sidebar />
+      {/* </div> */}
+
       {/* for the Body */}
-      <div className="Dbody w-100 m-1">
+      <div className="Dbody flex-grow-1 m-1">
         {/* nav */}
         <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
           <img
@@ -29,22 +28,8 @@ const Dashboard = () => {
             aria-controls="offcanvasScrolling"
           />
         </nav>
-        <div className="wizard px-2">
-            <div className="wrapper_wizard">
-              <div className="text">
-                 <span className="t_text">Step1</span>
-                 <span className="t_text">Step2</span>
-                 <span className="t_text">Step3</span>
-              </div>
-
-              <div className="circle">
-                 <span className="t_circle"></span>
-                 <span className="t_circle"></span>
-                 <span className="t_circle"></span>
-              </div>
-            </div>
-        </div>
-
+        {/* for the status of Project */}
+       <Wizard />
       </div>
 
       {/* canvas */}
@@ -57,7 +42,7 @@ const Dashboard = () => {
         aria-labelledby="offcanvasScrollingLabel"
       >
         <div class="offcanvas-body">
-            <Sidebar />
+          <Sidebar />
         </div>
       </div>
     </div>
