@@ -24,8 +24,8 @@ const Sidebar = () => {
   };
   return (
     <div
-      className={`Dsidebar m-1 d-flex custome_radius box_shadow ${
-        toggle ? "show" : "hide"
+      className={`Dsidebar m-1 d-flex  custome_radius box_shadow ${
+        toggle ? "show " : "hide"
       }`}
     >
       <div className="header d-flex align-items-center px-2">

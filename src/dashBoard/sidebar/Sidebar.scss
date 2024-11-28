@@ -35,7 +35,7 @@
       // padding: 10px;
       ul{
         width: 100%;
-        @include flex('','',column,10,0);
+        @include flex('','',column,9,0);
         .li_profile{
           @include flex(center,center,'',10,0);
           .profile{

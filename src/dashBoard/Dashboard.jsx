@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
 import { Menu } from "react-feather";
+import Wizard from "./wizard/Wizard";
+import Wizardlist from "./wizard/Wizardlist";
+import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
 
 const Dashboard = () => {
-
   return (
     <div className="dashboard_con">
-      <div className="side_large  d-none d-lg-flex d-xl-flex d-md-flex">
-        <Sidebar />
-      </div>
       {/* <Sidebar /> */}
+      <div className="d-none d-lg-flex d-xl-flex d-md-flex">
+      <Sidebar />
+      </div>
 
-      <div className="Dbody w-100 m-1">
+      {/* for the Body */}
+      <div className="Dbody flex-grow-1 m-1">
+        {/* nav */}
         <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
           <img
             src="/programming.png"
@@ -26,6 +30,12 @@ const Dashboard = () => {
             aria-controls="offcanvasScrolling"
           />
         </nav>
+        {/* for the status of Project */}
+       <Wizard />
+       <div className="wizard_con d-flex">
+        <ProjectInfo />
+        {/* <Wizardlist /> */}
+       </div>
       </div>
 
       {/* canvas */}
@@ -38,7 +48,7 @@ const Dashboard = () => {
         aria-labelledby="offcanvasScrollingLabel"
       >
         <div class="offcanvas-body">
-            <Sidebar />
+          <Sidebar />
         </div>
       </div>
     </div>

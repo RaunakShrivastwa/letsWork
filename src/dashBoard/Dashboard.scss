@@ -40,3 +40,9 @@
        }
     }
 }
+
+@include width-range(rem(0), $tablet){
+   .wizard_con{
+    flex-wrap: wrap !important;
+   }
+}
