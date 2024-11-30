@@ -34,8 +34,9 @@ const Dashboard = () => {
        <Wizard />
        <div className="wizard_con d-flex">
         <ProjectInfo />
-        {/* <Wizardlist /> */}
        </div>
+       
+
       </div>
 
       {/* canvas */}
@@ -47,7 +48,7 @@ const Dashboard = () => {
         id="offcanvasScrolling"
         aria-labelledby="offcanvasScrollingLabel"
       >
-        <div class="offcanvas-body">
+        <div class="offcanvas-body d-flex">
           <Sidebar />
         </div>
       </div>
