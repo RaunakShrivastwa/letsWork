@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
-import { Menu } from "react-feather";
+import { Eye, Menu } from "react-feather";
 import Wizard from "./wizard/Wizard";
 import Wizardlist from "./wizard/Wizardlist";
 import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
@@ -11,11 +11,11 @@ const Dashboard = () => {
     <div className="dashboard_con">
       {/* <Sidebar /> */}
       <div className="d-none d-lg-flex d-xl-flex d-md-flex">
-      <Sidebar />
+        <Sidebar />
       </div>
 
       {/* for the Body */}
-      <div className="Dbody flex-grow-1 m-1">
+      <div className="Dbody flex-grow-1 m-1 d-flex flex-column">
         {/* nav */}
         <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
           <img
@@ -31,11 +31,18 @@ const Dashboard = () => {
           />
         </nav>
         {/* for the status of Project */}
-       <Wizard />
-       <div className="wizard_con d-flex">
-        <ProjectInfo />
-       </div>
-       
+        <Wizard />
+        <div className="wizard_con d-flex">
+          <ProjectInfo />
+        </div>
+
+        <div className="iframe flex-grow-1">
+          <iframe className="box_shadow custome_border w-100 h-100 custome_radius p-2 pb-0" src="https://lets-work-two.vercel.app/" title="description">
+          </iframe>
+          <Eye className="eye" />
+        </div>
+        <div className="Dbody_profile"></div>
+        <div className="Dbody_footer"></div>
 
       </div>
 

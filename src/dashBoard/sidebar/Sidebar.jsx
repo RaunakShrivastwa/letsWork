@@ -86,7 +86,7 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className="d-flex align-items-center w-100 h-100 ps-3 pe-3 gap-2">
+            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
               <FileText />
               <select
                 name=""
@@ -104,7 +104,7 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className="d-flex align-items-center w-100 h-100 ps-3 pe-3 gap-2">
+            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
               <FileText />
               <select
                 name=""
@@ -134,66 +134,24 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className="d-flex align-items-center w-100 h-100 ps-3 pe-3 gap-2">
-              <details className="w-100">
-                <summary className={`w-100 d-flex justify-content-center  `}>
-                  <DollarSign className={`${toggle ? "me-2" : ""}`} />
-                  <div
-                    className={`d-flex w-100 justify-content-between align-items-center ${
-                      toggle ? "d-block" : "d-none"
-                    } `}
-                  >
-                    <span>Payment Status</span>
-                    <ChevronDown className="i20" />
-                  </div>
-                </summary>
-                <div className="d-flex flex-column rounded shadow summary-bg mt-1">
-                  <ul className={`${toggle ? "d-flex" : "d-none"}`}>
-                    <li className="d-flex justify-content-between px-2 ">
-                      <span>Initial Payment</span>
-                      <Check className="ryt" />
-                    </li>
-
-                    <li className="d-flex justify-content-between px-2">
-                      <span>Half Payment</span>
-                      <X className="cross" />
-                    </li>
-
-                    <li className="d-flex justify-content-between px-2">
-                      <span>Full Payment</span>
-                      <X className="cross" />
-                    </li>
-                  </ul>
-                </div>
-              </details>
+            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
+              <FileText />
+              <select
+                name=""
+                id=""
+                className={`w-100 h-100 border-0 ${
+                  toggle ? "d-block" : "d-none"
+                } `}
+              >
+                <option value="Recent Projects">Payment Status</option>
+                <option value="E-Commerce">Initial Payment</option>
+                <option value="E-Commerce">Half Payment</option>
+                <option value="E-Commerce">Full Payment </option>
+              </select>
             </div>
           </li>
 
-          <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className="d-flex align-items-center w-100 h-100 ps-3 pe-3 gap-2">
-              <details className="w-100">
-                <summary className={`w-100 d-flex justify-content-center  `}>
-                  <PhoneCall className={`${toggle ? "me-2" : ""}`} />
-                  <div
-                    className={`d-flex w-100 justify-content-between align-items-center ${
-                      toggle ? "d-block" : "d-none"
-                    } `}
-                  >
-                    <span>Contact</span>
-                    <ChevronDown className="i20" />
-                  </div>
-                </summary>
-                <div className="d-flex flex-column rounded shadow summary-bg mt-1">
-                  <ul className={`${toggle ? "d-flex" : "d-none"}`}>
-                    <li className="d-flex justify-content-between px-2 ">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Officiis, quaerat.
-                    </li>
-                  </ul>
-                </div>
-              </details>
-            </div>
-          </li>
+         
         </ul>
       </div>
 

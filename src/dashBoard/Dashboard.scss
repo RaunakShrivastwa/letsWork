@@ -22,6 +22,26 @@
         border-radius: 50%;
       }
     }
+
+
+     .iframe{
+        background-color: var(--form-bg);
+        position: relative;
+        .eye{
+          position: absolute;
+          top: 30px;
+          right: 30px;
+        }
+     }
+    .Dbody_profile{
+      height: 100px;
+      background-color: blue;
+    }
+
+    .Dbody_footer{
+      height: 50px;
+      background-color: magenta;
+    }
   }
 
   .offcanvas-start{
