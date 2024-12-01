@@ -4,7 +4,8 @@
     background: var(--bg-gradient);
   background: var(--bg);
   height: 100vh;
-  @include flex("", "", "", 10, 0);
+  @include flex("", "", "", 10, 10);
+  overflow-y: auto !important;
 
   .side_large{
     min-width: rem(260);
@@ -25,7 +26,7 @@
 
 
      .iframe{
-        background-color: var(--form-bg);
+          background-color: var(--form-bg);
         position: relative;
         .eye{
           position: absolute;
@@ -33,14 +34,24 @@
           right: 30px;
         }
      }
+  .profile_container{
+    overflow-x: auto !important;
+    background-color: var(--card-bg);
+    color: var(--textColor);
+    &::-webkit-scrollbar {
+    display: none !important; /* Set scrollbar width */
+  }
+  }
+  
+
     .Dbody_profile{
       height: 100px;
-      background-color: blue;
+      min-width: rem(768);
     }
 
     .Dbody_footer{
       height: 50px;
-      background-color: magenta;
+      background-color: var(--card-bg);
     }
   }
 
@@ -64,5 +75,9 @@
 @include width-range(rem(0), $tablet){
    .wizard_con{
     flex-wrap: wrap !important;
+   }
+
+   .Dbody{
+    gap: rem(20) !important;
    }
 }

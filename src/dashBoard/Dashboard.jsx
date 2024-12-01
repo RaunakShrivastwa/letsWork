@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
-import { Eye, Menu } from "react-feather";
+import {Eye, Maximize, Menu } from "react-feather";
 import Wizard from "./wizard/Wizard";
-import Wizardlist from "./wizard/Wizardlist";
 import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
+import AdminInfo from "./AdminInfo/AdminInfo";
+import Member from "./Member/Member";
 
 const Dashboard = () => {
+  const website = "https://lets-work-two.vercel.app/";
   return (
     <div className="dashboard_con">
       {/* <Sidebar /> */}
@@ -15,7 +17,7 @@ const Dashboard = () => {
       </div>
 
       {/* for the Body */}
-      <div className="Dbody flex-grow-1 m-1 d-flex flex-column">
+      <div className="Dbody flex-grow-1 m-1 d-flex flex-column gap-1">
         {/* nav */}
         <nav className="w-100 d-flex px-2 d-xl-none d-lg-none d-md-none justify-content-between align-items-center">
           <img
@@ -36,14 +38,28 @@ const Dashboard = () => {
           <ProjectInfo />
         </div>
 
-        <div className="iframe flex-grow-1">
-          <iframe className="box_shadow custome_border w-100 h-100 custome_radius p-2 pb-0" src="https://lets-work-two.vercel.app/" title="description">
-          </iframe>
-          <Eye className="eye" />
+        {/* for the project voew */}
+        <div className="iframe flex-grow-1 custome_radius">
+          <iframe
+            className="box_shadow custome_border w-100 h-100 custome_radius"
+            src={website}
+            title="description"
+          ></iframe>
+          <a href={website}>
+            <Maximize className="eye cursor-pointer" />
+          </a>
         </div>
-        <div className="Dbody_profile"></div>
-        <div className="Dbody_footer"></div>
 
+        {/* for the Dbody Footer */}
+        <div className="Dbody_footer custome_radius box_shadow mb-1 d-flex align-items-center px-3">
+          <div className="d-flex gap-5">
+                 <Eye />
+                 <span>Wireframes</span>
+                 <Member />
+                 
+          </div>
+          <span className="flex-grow-1 d-flex justify-content-end">Total PriseL: $120.45</span>
+        </div>
       </div>
 
       {/* canvas */}

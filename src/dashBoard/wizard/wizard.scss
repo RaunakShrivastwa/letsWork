@@ -6,7 +6,7 @@
     display: none !important; /* Set scrollbar width */
   }
   .wizard {
-    @include setDimension(100%, rem(100));
+    @include setDimension(100%, rem(70));
     padding: rem(10);
     z-index: 10;
     min-width: 712px;

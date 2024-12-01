@@ -1,0 +1,10 @@
+@import '../../styles.scss';
+
+.member{
+    position: relative;
+    @include flex(center,center,'',0,0);
+    img{
+        @include setDimension(rem(40),rem(40));
+        position: absolute;
+    }
+}
