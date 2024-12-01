@@ -82,3 +82,8 @@
     @include setDimension(rem(15), rem(15));
     @include flex(center, center, "", 0, 0);
 }
+
+.i30 {
+    @include setDimension(rem(30), rem(30));
+    @include flex(center, center, "", 0, 0);
+}

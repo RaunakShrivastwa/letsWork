@@ -8,7 +8,7 @@ import AdminInfo from "./AdminInfo/AdminInfo";
 import Member from "./Member/Member";
 
 const Dashboard = () => {
-  const website = "https://lets-work-two.vercel.app/";
+  const website = "https://www.feedocenter.com/?trk=public_post-text#/";
   return (
     <div className="dashboard_con">
       {/* <Sidebar /> */}
@@ -64,7 +64,7 @@ const Dashboard = () => {
 
       {/* canvas */}
       <div
-        class="offcanvas offcanvas-start p-0"
+        class="offcanvas offcanvas-sidebar offcanvas-start p-0"
         data-bs-scroll="true"
         data-bs-backdrop="false"
         tabindex="-1"
