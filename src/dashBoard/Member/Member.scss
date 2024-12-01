@@ -21,6 +21,7 @@
         .item {
             height: 70px;
             background-color: var(--card-bg);
+            color: var(--textColor-200);
             img {
                 @include setDimension(rem(50), rem(50));
                 border-radius: 50%;
