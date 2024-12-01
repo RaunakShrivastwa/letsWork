@@ -6,6 +6,7 @@ import Wizard from "./wizard/Wizard";
 import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
 import AdminInfo from "./AdminInfo/AdminInfo";
 import Member from "./Member/Member";
+import UpdateStatus from "../Model/UpdateStatus";
 
 const Dashboard = () => {
   const website = "https://www.feedocenter.com/?trk=public_post-text#/";
@@ -75,6 +76,7 @@ const Dashboard = () => {
           <Sidebar />
         </div>
       </div>
+      <UpdateStatus />
     </div>
   );
 };

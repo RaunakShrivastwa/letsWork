@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import {
   Award,
-  Check,
-  ChevronDown,
-  DollarSign,
   FileText,
   Mail,
   Menu,
   MessageCircle,
-  PhoneCall,
+  RefreshCcw,
   Sun,
   User,
-  X,
 } from "react-feather";
 import "./Sidebar.scss";
-import { Phone } from "lucide-react";
+import UpdateStatus from "../../Model/UpdateStatus";
 
 const Sidebar = () => {
   const [toggle, setToggle] = useState(true);
@@ -86,7 +82,11 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
+            <div
+              className={`d-flex align-items-center h-100 px-3 gap-2 ${
+                toggle ? "w-100" : ""
+              } `}
+            >
               <FileText />
               <select
                 name=""
@@ -104,7 +104,11 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
+            <div
+              className={`d-flex align-items-center h-100 px-3 gap-2 ${
+                toggle ? "w-100" : ""
+              } `}
+            >
               <FileText />
               <select
                 name=""
@@ -134,7 +138,11 @@ const Sidebar = () => {
           </li>
 
           <li className={`${toggle ? "" : "hide_text"}`}>
-            <div className={`d-flex align-items-center h-100 px-3 gap-2 ${toggle ? "w-100":''} `}>
+            <div
+              className={`d-flex align-items-center h-100 px-3 gap-2 ${
+                toggle ? "w-100" : ""
+              } `}
+            >
               <FileText />
               <select
                 name=""
@@ -151,7 +159,18 @@ const Sidebar = () => {
             </div>
           </li>
 
-         
+          <li className={`${toggle ? "" : "hide_text"}`}>
+            <div className="d-flex align-items-center h-100 px-3 gap-2">
+              <RefreshCcw />
+              <span
+                className={`${toggle ? "d-block" : "d-none"}`}
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                Update Status
+              </span>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -160,6 +179,7 @@ const Sidebar = () => {
         <span className={`${toggle ? "d-block" : "d-none"}`}>Back</span>
         <Sun />
       </div>
+      
     </div>
   );
 };
