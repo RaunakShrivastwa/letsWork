@@ -179,7 +179,7 @@ const Sidebar = () => {
         <span className={`${toggle ? "d-block" : "d-none"}`}>Back</span>
         <Sun />
       </div>
-      <UpdateStatus />
+      
     </div>
   );
 };
