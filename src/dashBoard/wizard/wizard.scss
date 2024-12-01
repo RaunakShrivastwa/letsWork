@@ -2,20 +2,30 @@
 
 .W-container{
   overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none !important; /* Set scrollbar width */
+  }
   .wizard {
-    @include setDimension(100%, rem(100));
+    @include setDimension(100%, rem(70));
     padding: rem(10);
     z-index: 10;
     min-width: 712px;
-    
-  
     .text_container {
       @include flex(space-between, '', '', 0, 0);
       margin-bottom: rem(10);
       /* Added margin to separate text from line */
-  
       .text_item {
-        color: green;
+        &.done{
+          color: var(--green);
+        }
+        &.proccessing{
+          color: var(--textColor);
+        }
+        &.pending{
+          color: var(--textColor);
+          opacity: 0.2;
+        }
+
       }
     }
   
@@ -34,7 +44,8 @@
         left: 0;
         width: 100%;
         height: 4px;
-        background-color: green;
+        background-color: var(--textColor-200);
+        opacity: 0.4;
         transform: translateY(-50%);
         z-index: 1;
         /* Background line */
@@ -45,20 +56,33 @@
         height: 20px;
         border-radius: 50%;
         position: relative;
+        background-color: var(--bg-gradient);;
         z-index: 2;
-        /* Circles above the line */
-  
+        background-size: cover; /* Ensures the image covers the circle */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+      
         &.done {
           background-color: green;
         }
-  
+      
         &.proccessing {
-          background-color: blue;
+          background-color: var(--bg-gradient);
+          border: 6px solid var(--green);
         }
-  
+      
         &.pending {
-          background-color: red;
+          z-index: 3;
+          background-image: url('https://cdn-icons-png.flaticon.com/128/11560/11560347.png');
         }
+      }
+      
+
+      .progress{
+        position: absolute;
+        height: rem(4);
+        background-color: var(--green);
+        z-index: 1;
       }
     }
   }
