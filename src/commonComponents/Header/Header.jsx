@@ -13,6 +13,7 @@ import {
 } from "react-feather";
 import { Link } from "react-router-dom";
 // import {} from 'react-feather'
+import SignIn from "../../authComponent/SignIn/SignIn";
 
 const Header = ({ setTheme, theme }) => {
   const [toggle, setToggle] = useState(false);
@@ -66,6 +67,7 @@ const Header = ({ setTheme, theme }) => {
             >
               SignIn
             </span>
+            <SignIn />
             <Link
               to="/api/letswork/register/account"
               className="span signup me-5"
