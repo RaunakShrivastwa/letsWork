@@ -4,7 +4,7 @@ import Modal from "./TableModal/Modal";
 
 const Table = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [id,setId] = useState();
+  const [id, setId] = useState();
 
   // Get column headers dynamically from the first data item
   const columns = Object.keys(data[0]);
@@ -16,18 +16,14 @@ const Table = ({ data }) => {
     )
   );
 
-  const sendUser = (id)=>{
+  const sendUser = (id) => {
     setId(id);
-  }
+    // <Modal id={id}/>;
+  };
 
   return (
     <div className="table_client p-3 rounded h-100">
       {/* ********************* */}
-
-      <Modal />
-
-      {/* ********************* */}
-
       <h4 className="text-center mt-2 fw-bold">Our Clients</h4>
       {/* Search Bar */}
       <div className="row">
@@ -45,7 +41,6 @@ const Table = ({ data }) => {
           </div>
         </div>
       </div>
-
       {/* Table Container */}
       <div className="table-container">
         <div className="table-responsive">
@@ -91,6 +86,7 @@ const Table = ({ data }) => {
           </table>
         </div>
       </div>
+      {id && <Modal id={id} />}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     </div>
   );
 };

@@ -78,6 +78,21 @@ export const fetchAuthUser = createAsyncThunk(
 );
 
 // Asynchronous thunk for fetching authenticated user details
+export const SingleUser = createAsyncThunk("auth/SingleUser", async (id, thunkAPI) => {
+  try {
+    const token = thunkAPI.getState().auth.token; // Get token from state
+    const response = await axios.get(`${BASE_URL}/user/api/user/fetch/${id}`, {
+      headers: { Authorization: `${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(
+      error.response?.data || "Failed to fetch authenticated user"
+    );
+  }
+});
+
+// Asynchronous thunk for fetching authenticated user details
 export const resend = createAsyncThunk(
   "auth/fetchAuthUser",
   async (_, thunkAPI) => {
@@ -118,7 +133,9 @@ const authSlice = createSlice({
     status: "idle", // idle | loading | succeeded | failed
     error: null,
     verify:false,
-    clients:null
+    clients:null,
+    tempUser:null
+
 
   },
   reducers: {
@@ -148,7 +165,6 @@ const authSlice = createSlice({
         cookie.set("token", action.payload.token, { expires: 7 });
       })
       .addCase(login.rejected, (state, action) => {
-        
         state.status = "failed";
         state.error = action.payload;
       })
@@ -173,7 +189,7 @@ const authSlice = createSlice({
       })
       .addCase(verifyOTP.fulfilled, (state) => {
         state.status = "200";
-        state.verify = true
+        state.verify = true;
       })
       .addCase(verifyOTP.rejected, (state, action) => {
         state.status = "201";
@@ -190,6 +206,19 @@ const authSlice = createSlice({
         state.clients = action.payload;
       })
       .addCase(fetchAuthUser.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+
+      // for the SingleUser user
+      .addCase(SingleUser.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(SingleUser.fulfilled, (state, action) => {
+        state.status = "200";
+        state.tempUser = action.payload;
+      })
+      .addCase(SingleUser.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });
