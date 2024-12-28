@@ -3,21 +3,41 @@
 .modal-dialog {
   min-width: 60vw !important;
   border: none !important;
-    outline: none !important;
+  outline: none !important;
   // max-height: 70vh;
 }
 
-.login_form{
+.login_form {
   background: var(--bg-gradient);
-    background: var(--bg);
-    color: var(--textColor);
-    border: none !important;
-    outline: none !important;
+  background: var(--bg);
+  color: var(--textColor);
+  border: none !important;
+  outline: none !important;
+
+  button:not(:has(.disabled1)):hover {
+    background-color: var(--green) !important;
+    color: var(--white);
+  }
+
+  .disabled1 {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .btn-def {
+    background-color: var(--pink);
+    color: var(--white);
+  }
+
+  .login_btn {
+    opacity: unset !important;
+    pointer-events: unset !important;
+  }
 }
 
 .gradient-custom-2 {
   background-color: var(--pink);
-  }
+}
 input {
   height: 50px !important;
   border: none;
