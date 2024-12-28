@@ -96,7 +96,7 @@ const UpdateStatus = () => {
           </div>
         </div>
       );
-    }
+    }  
 
     return (
       <div className="form-row d-flex f20 gap-2 mb-3 align-items-center">
@@ -166,7 +166,7 @@ const UpdateStatus = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body wizard_status_modal">
+          <div className="modal-body wizard_status_modal overflow-x-auto">
             <form id="status-form">
               {renderStage("meeting", "Meeting")}
               {renderStage("planning", "Planning", "meeting")}

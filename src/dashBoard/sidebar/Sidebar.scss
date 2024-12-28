@@ -22,7 +22,7 @@
     .header {
       @include setDimension(100%, rem(60));
       z-index: 100 !important;
-      background-color: var(--form-bg);
+      background-color: var(--card-bg);
     }
 
     .sideBody {
@@ -109,7 +109,7 @@
 
     .footer {
       @include setDimension(100%, rem(60));
-      background-color: var(--form-bg);
+      background-color: var(--card-bg);
     }
     
   }
