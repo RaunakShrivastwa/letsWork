@@ -24,6 +24,7 @@ const Table = ({ data }) => {
   return (
     <div className="table_client p-3 rounded h-100">
       {/* ********************* */}
+     <Modal id={id} />
       <h4 className="text-center mt-2 fw-bold">Our Clients</h4>
       {/* Search Bar */}
       <div className="row">
@@ -85,8 +86,7 @@ const Table = ({ data }) => {
             </tbody>
           </table>
         </div>
-      </div>
-      {id && <Modal id={id} />}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+      </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     </div>
   );
 };

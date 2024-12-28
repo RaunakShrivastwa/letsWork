@@ -1,7 +1,7 @@
 @import "./Function.scss";
 @import "./Base/variables";
 
-@mixin flex($justify, $align, $direction, $gap, $padding) {
+@mixin flex($justify:start, $align:start, $direction:row, $gap:0, $padding:0) {
   display: flex;
   justify-content: $justify;
   align-items: $align;

@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react'
 import './Modal.scss';
-import { SingleUser} from '../../features/authSlice';
+import { SingleUser } from '../../features/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Modal = ({id}) => {
+const Modal = ({ id }) => {
 
-   const { tempUser } = useSelector((state) => state.auth);
+  const { tempUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-      useEffect(()=>{
-          dispatch(SingleUser(id));
-      },id)
+  useEffect(() => {
+    dispatch(SingleUser(id));
+  }, id)
+
+
+
   return (
     <div
       class="offcanvas offcanvas-end user_table"
@@ -28,8 +31,24 @@ const Modal = ({id}) => {
           aria-label="Close"
         ></button>
       </div>
-      <div class="offcanvas-body">
-         <p>{tempUser?.userName}</p>
+      <div class="offcanvas-body p-2">
+        <div className="wrapper">
+          <img src={tempUser?.profile} alt="" />
+          <p className='info form-control mb-2 mt-2'>{tempUser?.userName || "Anonymous"}</p>
+          <p className='info form-control mb-2'>{tempUser?.userEmail || "guest@gmail.com"}</p>
+          <p className='info form-control mb-2'>{tempUser?.userAddress || "Root"}</p>
+          <p className='info form-control mb-2'>{tempUser?.payment || "Pending...."}</p>
+
+          <form className='w-100'>
+            <input type="email" class="form-control" placeholder='Enter Project Name' />
+            <input type="password" class="form-control" placeholder='Enter Project Discription' />
+            <input type="date" class="form-control" placeholder='Enter Start Date' />
+            <input type="date" class="form-control" placeholder='Enter End Date' />
+            <input type="text" class="form-control" placeholder='Enter Prise' />
+            <button type="submit" class="btn btn-success form-control">Submit</button>
+          </form>
+       </div>
+
       </div>
     </div>
   );

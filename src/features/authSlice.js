@@ -3,7 +3,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:9000/letswork"; // Replace with your backend API URL
+const BASE_URL = "http://localhost:9000/letswork";
 // Asynchronous thunk for user login
 export const login = createAsyncThunk(
   "auth/login",
