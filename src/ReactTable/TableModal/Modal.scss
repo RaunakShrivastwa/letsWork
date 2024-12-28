@@ -1,1 +1,8 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
+
+.user_table {
+  border-radius: rem(6);
+  .offcanvas-header {
+    background-color: lightblue;
+  }
+}
