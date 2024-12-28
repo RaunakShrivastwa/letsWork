@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import {
   AlignCenter,
@@ -11,16 +11,33 @@ import {
   Sun,
   X,
 } from "react-feather";
-import { Link } from "react-router-dom";
-// import {} from 'react-feather'
+import { Link, useNavigate } from "react-router-dom";
 import SignIn from "../../authComponent/SignIn/SignIn";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut } from "lucide-react";
+import { logout, performLogout} from "../../features/authSlice.js";
+
 
 const Header = ({ setTheme, theme }) => {
   const [toggle, setToggle] = useState(false);
-
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const history = useNavigate();
   const Toggle = () => {
     setToggle(!toggle);
     toggle ? setTheme("light_theme") : setTheme("dark_theme");
+  };
+
+
+  const handleLogout = async () => {
+    try {
+      await dispatch(performLogout()).unwrap();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    } finally {
+      dispatch(logout());
+      history("/");
+    }
   };
   return (
     <>
@@ -60,24 +77,26 @@ const Header = ({ setTheme, theme }) => {
               Hire Us
             </button>
 
-            <span
-              className="span signin"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              SignIn
-            </span>
-            <SignIn />
-            <Link
-              to="/api/letswork/register/account"
-              className="span signup me-5"
-            >
-              SignUp
-            </Link>
+            <p className={`gap-3 ${user ? "d-none" : "d-flex"}`}>
+              <span
+                className="span signin"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                SignIn
+              </span>
+              <SignIn />
+              <Link
+                to="/api/letswork/register/account"
+                className="span signup me-5"
+              >
+                SignUp
+              </Link>
+            </p>
             <img
-              className="logo box_shadow d-none"
-              src="https://cdn-icons-png.flaticon.com/128/16683/16683419.png"
-              alt=""
+              className={`logo box_shadow p-1 ${user ? "d-block" : "d-none"}`}
+              src={user?.profile}
+              alt="https://cdn-icons-png.flaticon.com/128/16683/16683419.png"
             />
             <p
               className="toggle_icon"
@@ -137,13 +156,13 @@ const Header = ({ setTheme, theme }) => {
             <Link
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
-              className=" span signin"
+              className={`span signin ${user ? "d-none" : "d-block"}`}
             >
               SignIn
             </Link>
             <Link
               to="/api/letswork/register/account"
-              className="span signup me-5"
+              className={`span signup me-5 ${user ? "d-none" : "d-block"}`}
             >
               SignUp
             </Link>
@@ -184,19 +203,39 @@ const Header = ({ setTheme, theme }) => {
             <Link className="span signup me-5 d-none">
               Free APffffffffffffffffffI
             </Link>
-            <Link to="/api/letswork/dashboard" className="span signup me-5 mb-3">
+            <Link to="/api/letswork/dashboard" className="span signup me-5">
               Dashboard
             </Link>
+            <Link to="/api/letswork/project" className="span signup me-5">
+              Project
+            </Link>
+            <Link to="/api/letswork/clients" className="span signup me-5">
+              Clients
+            </Link>
+
+            <p
+              className="span signup me-5 mb-3 d-flex gap-2"
+              onClick={handleLogout}
+            >
+              <LogOut />
+              <span>Logout</span>
+            </p>
           </div>
 
           <div className="footer_container w-100 p-3">
-            <div className="footer p-2 box_shadow mb-3 custome_radius d-flex gap-4 justify-content-center align-items-center">
+            <div className="footer p-2 box_shadow mb-3 custome_radius d-flex gap-4  align-items-center">
               <img
-                className="logo box_shadow"
-                src="https://cdn-icons-png.flaticon.com/128/16683/16683419.png"
+                className="logo custome_border"
+                src={
+                  user
+                    ? user?.profile
+                    : "https://cdn-icons-png.flaticon.com/128/16683/16683419.png"
+                }
                 alt=""
               />
-              <span className="name">Shubham Shri.</span>
+              <span className="name fw-bold f20">
+                {user ? user?.userName : "Guest"}
+              </span>
               <p
                 className="toggle_icon1 d-none"
                 title={`${

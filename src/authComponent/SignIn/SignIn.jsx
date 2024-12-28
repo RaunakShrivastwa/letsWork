@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignIn.scss";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import Cookie from 'js-cookie'
+ 
+import { useDispatch, useSelector } from "react-redux";
+import { login,setAuth } from "../../features/authSlice";
+import cookie from 'js-cookie'
+import { jwtDecode } from "jwt-decode";
 
 function SignIn() {
-  const [err, setErr] = useState('');
+ const auth= useSelector((state)=>state.auth);
+ 
+  const dispatch=useDispatch()
+
+  
   const [id,setId] = useState();
   const [password,setPassword] = useState();
 
   const handleSubmit = async (e)=>{
     e.preventDefault();
     const body = {userEmail:id,userPassword:password}
-    console.log(body);
-    
-    try{
-      const token = await axios.post(
-        `http://localhost:9000/letswork/auth/create/session`,body
-      );
-    }catch(err){
-
-    }
-
+    dispatch(login(body));
   }
+
+  const token = cookie.get('token')
+    useEffect(() => {
+      if (token) {
+        const user = jwtDecode(token);
+        dispatch(setAuth({ token, user }));  
+      }
+    }, [token]);
   return (
     <div
       class="modal fade"
@@ -31,6 +37,7 @@ function SignIn() {
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
+      {auth.token}
       <div class="modal-dialog">
         <div class="modal-content p-0">
           <div class="modal-body p-0">
@@ -53,7 +60,7 @@ function SignIn() {
                         {/* for the username and email */}
                         <div
                           className={`form-outline ${
-                            err ? "error" : ""
+                            auth?.error ? "error" : ""
                           } mb-4 d-flex flex-column align-items-start`}
                         >
                           <input
@@ -63,17 +70,12 @@ function SignIn() {
                             value={id}
                             onChange={(e) => setId(e.target.value)}
                           />
-                          <small
-                            className={`px-2 f11 ${err ? "d-block" : "d-none"}`}
-                          >
-                            There is Error
-                          </small>
                         </div>
 
                         {/* for the password */}
                         <div
                           className={`form-outline mb-4 ${
-                            err ? "error" : ""
+                            auth?.error ? "error" : ""
                           } d-flex flex-column align-items-start`}
                         >
                           <input
@@ -85,17 +87,21 @@ function SignIn() {
                               setPassword(e.target.value);
                             }}
                           />
+
                           <small
-                            className={`px-2 f11 ${err ? "d-block" : "d-none"}`}
+                            className={`px-2 f11 mt-3 ${
+                              auth?.error ? "d-block" : "d-none"
+                            }`}
                           >
-                            There is Error
+                            {auth?.error?.Message}
                           </small>
                         </div>
 
                         <div className="text-center pt-1">
                           <button
-                            className={`btn w-100 disabled1 ${id && password ? 'login_btn':''} mb-3`}
-                            
+                            className={`btn w-100 btn-def  ${
+                              id && password ? "login_btn" : "disabled1"
+                            } mb-3`}
                           >
                             Log in
                           </button>

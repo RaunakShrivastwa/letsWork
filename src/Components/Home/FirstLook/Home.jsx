@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.scss"
-import zIndex from "@mui/material/styles/zIndex";
 function Home() {
   return (
     <div className="main_section position-relative">

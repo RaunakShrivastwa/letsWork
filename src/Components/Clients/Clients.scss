@@ -1,0 +1,9 @@
+@import "../../styles.scss";
+
+.client_container {
+  @include flex(center, center, column, 0, 0);
+  // padding: rem(71) rem(100) 0 100px;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background: var(--bg);
+}

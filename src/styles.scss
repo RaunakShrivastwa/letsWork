@@ -79,6 +79,12 @@ a {
   }
 }
 
+.confirm{
+  input{
+    border: 1px solid green !important;
+  }
+}
+
 .modal-backdrop{
   position: relative !important;
 }

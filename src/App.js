@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,10 +16,13 @@ import BlogPage from "./Components/BlogPage/BlogPage.jsx";
 import Career from "./Components/CareerPage/Career.jsx";
 import Services from "./Components/Services/Services.jsx";
 import OurWork from "./Components/OurWork/WorkView/WorkView.jsx";
-import Project from "./Components/OurWork/ProjectCard/Project.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import SignUp from "./authComponent/SignUp/SignUp.jsx";
 import Dashboard from "./dashBoard/Dashboard.jsx";
+import Clients from "./Components/Clients/Clients.jsx";
+
+
+
 
 // Child component to manage layout based on route
 const Layout = ({ setTheme, theme }) => {
@@ -28,7 +31,8 @@ const Layout = ({ setTheme, theme }) => {
   // Define routes where the header should be hidden
   const hideHeaderRoutes = ["/api/letswork/dashboard"];
   const isHeaderVisible = !hideHeaderRoutes.includes(location.pathname);
-
+  
+  
   return (
     <>
       {isHeaderVisible && <Header setTheme={setTheme} theme={theme} />}
@@ -41,6 +45,7 @@ const Layout = ({ setTheme, theme }) => {
         <Route exact path="/api/letswork/career" element={<Career />} />
         <Route exact path="/api/letswork/our/work" element={<OurWork />} />
         <Route exact path="/api/letswork/contact/us" element={<Contact />} />
+        <Route exact path="/api/letswork/clients" element={<Clients />} />
         <Route
           exact
           path="/api/letswork/register/account"
