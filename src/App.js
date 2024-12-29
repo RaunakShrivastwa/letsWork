@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,6 +22,8 @@ import Dashboard from "./dashBoard/Dashboard.jsx";
 import Clients from "./Components/Clients/Clients.jsx";
 
 
+import { io } from "socket.io-client";
+import Chat  from "./chatComponent/Chat";
 
 
 // Child component to manage layout based on route
@@ -52,12 +54,25 @@ const Layout = ({ setTheme, theme }) => {
           element={<SignUp />}
         />
         <Route exact path="/api/letswork/dashboard" element={<Dashboard />} />
+
+        <Route exact path="/api/letswork/chat" element={<Chat />} />
       </Routes>
     </>
   );
 };
 
 const App = () => {
+  const socket = useMemo(() => io(("http://localhost:9000") || ("http://localhost:5000") ), []);
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected as:", socket.id);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   const [theme, setTheme] = useState("light_theme");
 
   return (
