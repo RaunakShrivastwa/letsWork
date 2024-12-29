@@ -2,15 +2,17 @@ import React, { useEffect } from 'react'
 import './Modal.scss';
 import { SingleUser } from '../../features/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { Facebook, Linkedin, Twitter } from 'react-feather';
 
 const Modal = ({ id }) => {
 
   const { tempUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(SingleUser(id));
+    if (id) {
+      dispatch(SingleUser(id));
+    }
   }, id)
-
 
 
   return (
@@ -47,7 +49,21 @@ const Modal = ({ id }) => {
             <input type="text" class="form-control" placeholder='Enter Prise' />
             <button type="submit" class="btn btn-success form-control">Submit</button>
           </form>
-       </div>
+
+          <div className='social_link form-control'>
+            <a href={ 'https://www.linkedin.com/in/java-abhijeet/'} className="fb">
+              <Facebook className='i20' />
+
+
+            </a>
+            <a href={tempUser?.twitter} className="twitter">
+              <Twitter className='i20' />
+            </a>
+            <a href={tempUser?.linkedin} className="linkedin">
+              <Linkedin className='i20' />
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>

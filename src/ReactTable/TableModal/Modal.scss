@@ -25,6 +25,34 @@
         box-shadow: 10px 3px 3px 2px rgb(237, 233, 233);
       }
 
+      .social_link {
+        @include flex(center, center, "", 10);
+        border: none;
+
+        a {
+          color: unset;
+          @include flex(center, center, "", 10);
+          @include setDimension(rem(40), rem(40));
+          border-radius: 50%;
+
+          &.fb {
+            color: var(--white);
+            background-color: #4267b2;
+          }
+
+          &.twitter {
+            color: var(--white);
+            background-color: black;
+          }
+
+          &.linkedin {
+            color: var(--white);
+            background-color: #4267b2;
+          }
+
+        }
+      }
+
 
     }
   }
