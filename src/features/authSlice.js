@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import cookie from "js-cookie";
-import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:9000/letswork"; // Replace with your backend API URL
+const BASE_URL = "http://localhost:9000/letswork";
 // Asynchronous thunk for user login
 export const login = createAsyncThunk(
   "auth/login",
@@ -145,6 +144,7 @@ const authSlice = createSlice({
       state.status = "idle";
       state.error = null;
       cookie.remove("token");
+      cookie.remove("info");
     },
     setAuth: (state, action) => {
       console.log(action, "............................");
@@ -161,6 +161,7 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.token = action.payload.token; // Assuming response includes token
+        
         state.user = action.payload.user; // Assuming response includes user details
         cookie.set("token", action.payload.token, { expires: 7 });
       })

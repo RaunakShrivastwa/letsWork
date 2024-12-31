@@ -12,6 +12,7 @@ import SignIn from "../../authComponent/SignIn/SignIn";
 import Footer from "../../commonComponents/Footer/Footer";
 import Services from "../Services/Services";
 import Testonomial from "../Home/Testonomial/Testonomial";
+import Modal from "../../ReactTable/TableModal/Modal";
 
 function Root({ theme }) {
   return (
@@ -36,6 +37,7 @@ function Root({ theme }) {
       <Blog />
       <Contact />
       <Footer />
+      { <Modal />}
     </div>
   );
 }

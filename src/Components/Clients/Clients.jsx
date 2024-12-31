@@ -8,6 +8,9 @@ const Clients = () => {
   const dispatch = useDispatch();
   const { clients } = useSelector((state) => state.auth);
 
+  console.log("clients",clients);
+  
+
   const User = clients?.map((user) => ({
     userName: user?.userName || "Dummy",
     profile: user?.profile || "No Profile",
