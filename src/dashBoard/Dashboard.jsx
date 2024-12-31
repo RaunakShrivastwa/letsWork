@@ -7,14 +7,18 @@ import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
 import AdminInfo from "./AdminInfo/AdminInfo";
 import Member from "./Member/Member";
 import UpdateStatus from "../Model/UpdateStatus";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const website = "https://www.feedocenter.com/?trk=public_post-text#/";
+  const { user } = useSelector((state) => state.project);
+  console.log(user);
+  
   return (
     <div className="dashboard_con">
       {/* <Sidebar /> */}
       <div className="d-none d-lg-flex d-xl-flex d-md-flex">
-        <Sidebar />
+        {/* <Sidebar user={user} /> */}
       </div>
 
       {/* for the Body */}

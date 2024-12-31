@@ -12,7 +12,7 @@ import {
 import "./Sidebar.scss";
 import UpdateStatus from "../../Model/UpdateStatus";
 
-const Sidebar = () => {
+const Sidebar = ({ user }) => {
   const [toggle, setToggle] = useState(true);
 
   const hideSideBar = () => {
@@ -66,7 +66,7 @@ const Sidebar = () => {
               <Mail />
               <span className={`${toggle ? "d-block" : "d-none"}`}>
                 {" "}
-                Connect@Shubham@gmail.com{" "}
+                {user?.userEmail}{" "}
               </span>
             </div>
           </li>
@@ -76,7 +76,7 @@ const Sidebar = () => {
               <Award />
               <span className={`${toggle ? "d-block" : "d-none"}`}>
                 {" "}
-                Fullstack Developer{" "}
+                {user?.department}{" "}
               </span>
             </div>
           </li>
@@ -96,9 +96,9 @@ const Sidebar = () => {
                 } `}
               >
                 <option value="Past Projects">Past Projects</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="E-Commerce">E-Commerce</option>
+                {user?.pastProjects.map((data) => (
+                  <option value="E-Commerce">{data?.projectName}</option>
+                ))}
               </select>
             </div>
           </li>
@@ -179,7 +179,6 @@ const Sidebar = () => {
         <span className={`${toggle ? "d-block" : "d-none"}`}>Back</span>
         <Sun />
       </div>
-      
     </div>
   );
 };

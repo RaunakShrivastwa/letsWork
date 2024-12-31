@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
  
 import { useDispatch, useSelector } from "react-redux";
 import { login,setAuth } from "../../features/authSlice";
+import {populateUser,setInfo} from '../../features/ProjectSlice';
 import cookie from 'js-cookie'
 import { jwtDecode } from "jwt-decode";
 
 function SignIn() {
  const auth= useSelector((state)=>state.auth);
  
-  const dispatch=useDispatch()
+  const dispatch=useDispatch();
+
 
   
   const [id,setId] = useState();
@@ -20,13 +22,19 @@ function SignIn() {
     e.preventDefault();
     const body = {userEmail:id,userPassword:password}
     dispatch(login(body));
+
   }
 
-  const token = cookie.get('token')
+  const token = cookie.get('token');
+  const info = cookie.get('info');
     useEffect(() => {
       if (token) {
+        console.log("user populate Data", info);
         const user = jwtDecode(token);
+        dispatch(populateUser(user?._id));
+        dispatch(setInfo({ info }));
         dispatch(setAuth({ token, user }));  
+        
       }
     }, [token]);
   return (
