@@ -10,7 +10,7 @@ const UserListSection = ({ setSelectedUser, socketID, userList, socket }) => {
 
     return (
         <div
-            className="col-4 border-end border-5 border-dark"
+            className="col-4 border-end border-1 border-dark"
             style={{ backgroundColor: "#F0F2F5", overflowY: "auto", minWidth: "400px" }}
         >
             <Header socketID={socketID} />
