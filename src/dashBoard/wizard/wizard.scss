@@ -15,7 +15,7 @@
       margin-bottom: rem(10);
       /* Added margin to separate text from line */
       .text_item {
-        &.done{
+        &.Done{
           color: var(--green);
         }
         &.proccessing{
@@ -62,7 +62,7 @@
         background-position: center; /* Centers the image */
         background-repeat: no-repeat; /* Prevents the image from repeating */
       
-        &.done {
+        &.Done {
           background-color: green;
         }
       

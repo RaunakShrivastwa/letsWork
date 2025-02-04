@@ -1,4 +1,5 @@
 import React from "react";
+import "./ServiceCard.scss";
 
 const ServiceCard = ({ icon: Icon, title, description }) => (
   <div className="card service-card container py-1 px-3 bg-transparent h-100 border-0 custome_radius">

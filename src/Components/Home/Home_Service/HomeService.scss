@@ -96,8 +96,7 @@
             color: var(--textColor);
             &:hover{
                 transition: all ease-in-out 0.5s;
-                background-color: var(--pink);
-                color: var(--white);
+                background-color: var(--card-bg);
                 opacity: 0.4;
             }
             img{

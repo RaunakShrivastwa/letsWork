@@ -20,6 +20,8 @@ import Contact from "./Components/Contact/Contact.jsx";
 import SignUp from "./authComponent/SignUp/SignUp.jsx";
 import Dashboard from "./dashBoard/Dashboard.jsx";
 import Clients from "./Components/Clients/Clients.jsx";
+import {populateUser} from './features/serverSlice.js';
+import { useDispatch } from "react-redux";
 
 
 
@@ -27,11 +29,18 @@ import Clients from "./Components/Clients/Clients.jsx";
 // Child component to manage layout based on route
 const Layout = ({ setTheme, theme }) => {
   const location = useLocation();
+  const disptch = useDispatch();
+
 
   // Define routes where the header should be hidden
   const hideHeaderRoutes = ["/api/letswork/dashboard"];
   const isHeaderVisible = !hideHeaderRoutes.includes(location.pathname);
-  
+
+  useEffect(()=>{
+      disptch(populateUser());
+      
+  },[]);
+
   
   return (
     <>

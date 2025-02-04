@@ -1,16 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import cookie from 'js-cookie'
 
 const BASE_URL = "http://localhost:9000/letswork";
+
+const token = cookie.get('token');
+
 
 // Async thunk for creating a project
 export const createProject = createAsyncThunk(
   "projects/createProject",
   async (projectData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token; // Get token from Redux state
-      console.log("Token:", token);
-
       const response = await axios.post(
         `${BASE_URL}/project/add/data`,
         projectData,
@@ -33,8 +34,6 @@ export const populateUser = createAsyncThunk(
   "projects/populateUser",
   async (id, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token; // Get token from Redux state
-      console.log("Token:", token);
 
       const response = await axios.get(
         `${BASE_URL}/user/api/user/fetch/${id}`,
@@ -52,6 +51,29 @@ export const populateUser = createAsyncThunk(
   }
 );
 
+// Async thunk for populating a user
+export const fetchProject = createAsyncThunk(
+  "projects/fetchproject",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/project/fetch/data/${id}`,
+        {
+          headers: { Authorization: `${token}` }, // Add token to headers
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      return thunkAPI.rejectWithValue(
+        error.response?.data || "Failed to fetch user"
+      );
+    }
+  }
+);
+
+
+
 const projectSlice = createSlice({
   name: "projects",
   initialState: {
@@ -60,6 +82,11 @@ const projectSlice = createSlice({
     status: "idle",
     error: null,
     user: null,
+    populateStatus:null,
+    projectStatus:null,
+    fetchedProject:null
+
+
   },
   reducers: {
     setInfo: (state, action) => {
@@ -85,7 +112,7 @@ const projectSlice = createSlice({
         state.status = "loading";
       })
       .addCase(populateUser.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.populateStatus = "200";
         state.user = action.payload.user;
 
         // Save user data to localStorage
@@ -93,6 +120,20 @@ const projectSlice = createSlice({
       })
       .addCase(populateUser.rejected, (state, action) => {
         state.status = "failed";
+        state.error = action.payload;
+      })
+      // for the fetch project
+      .addCase(fetchProject.pending, (state) => {
+        state.projectStatus = "loading";
+      })
+      .addCase(fetchProject.fulfilled, (state, action) => {
+        state.projectStatus = "200";
+        state.fetchedProject = action.payload;
+        console.log(action.payload);
+        
+      })
+      .addCase(fetchProject.rejected, (state, action) => {
+        state.projectStatus = "failed";
         state.error = action.payload;
       });
   },

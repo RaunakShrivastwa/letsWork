@@ -13,8 +13,12 @@ import Footer from "../../commonComponents/Footer/Footer";
 import Services from "../Services/Services";
 import Testonomial from "../Home/Testonomial/Testonomial";
 import Modal from "../../ReactTable/TableModal/Modal";
+import { useSelector } from "react-redux";
 
 function Root({ theme }) {
+  const {serverStatus} = useSelector(
+    (state) => state.server
+  );
   return (
     <div
       className={`vw-100 home_wrapper vh-100 bg-primary overflow-y-auto ${theme}`}
@@ -33,11 +37,11 @@ function Root({ theme }) {
       <About />
       <Roadmap />
       <OurArea />
-      <Testonomial />
+      {serverStatus !== "failed" && <Testonomial />}
       <Blog />
       <Contact />
       <Footer />
-      { <Modal />}
+      {<Modal />}
     </div>
   );
 }

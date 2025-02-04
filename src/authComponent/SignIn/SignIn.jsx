@@ -26,13 +26,9 @@ function SignIn() {
   }
 
   const token = cookie.get('token');
-  const info = cookie.get('info');
     useEffect(() => {
       if (token) {
-        console.log("user populate Data", info);
         const user = jwtDecode(token);
-        dispatch(populateUser(user?._id));
-        dispatch(setInfo({ info }));
         dispatch(setAuth({ token, user }));  
         
       }

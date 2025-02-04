@@ -1,40 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import './Modal.scss';
-import { SingleUser } from '../../features/authSlice';
-import {createProject} from '../../features/ProjectSlice'
-import { useDispatch, useSelector } from 'react-redux';
-import { Facebook, Linkedin, Twitter } from 'react-feather';
+import React, { useEffect, useState } from "react";
+import "./Modal.scss";
+import { SingleUser } from "../../features/authSlice";
+import { createProject } from "../../features/ProjectSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Facebook, Linkedin, Twitter } from "react-feather";
 
 const Modal = ({ id }) => {
-
-  const [name,SetName] = useState();
-  const [desc,SetDesc] = useState();
-  const [Sdate,setSdate] = useState();
-  const [Edate,SetEdate] = useState();
-  const [prise,setPrise] = useState();
-  const { tempUser,user } = useSelector((state) => state.auth);
+  const [name, SetName] = useState();
+  const [desc, SetDesc] = useState();
+  const [Sdate, setSdate] = useState();
+  const [Edate, SetEdate] = useState();
+  const [prise, setPrise] = useState();
+  const [url,setUrl] = useState();
+  const { tempUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [user, setUser] = useState();
   useEffect(() => {
     if (id) {
       dispatch(SingleUser(id));
     }
   }, id);
-  console.log("User check",user);
-  
 
-  const handleSubmit = (e)=>{
+  useEffect(() => {
+    if (tempUser) {
+      setUser(tempUser?.user);
+    }
+  }, [tempUser]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
       projectName: name,
       projectDescription: desc,
       startDate: Sdate,
+      
       endDate: Edate,
       price: prise,
-      userEmail:tempUser?.userEmail
+      projectUrl:url,
+      userEmail: user?.userEmail,
     };
     dispatch(createProject(body));
-    
-  }
+  };
 
   return (
     <div
@@ -56,18 +62,18 @@ const Modal = ({ id }) => {
       </div>
       <div class="offcanvas-body p-2">
         <div className="wrapper">
-          <img src={tempUser?.profile} alt="" />
+          <img src={user?.profile} alt="" />
           <p className="info form-control mb-2 mt-2">
-            {tempUser?.userName || "Anonymous"}
+            {user?.userName || "Anonymous"}
           </p>
           <p className="info form-control mb-2">
-            {tempUser?.userEmail || "guest@gmail.com"}
+            {user?.userEmail || "guest@gmail.com"}
           </p>
           <p className="info form-control mb-2">
-            {tempUser?.userAddress || "Root"}
+            {user?.userAddress || "Root"}
           </p>
           <p className="info form-control mb-2">
-            {tempUser?.payment || "Pending...."}
+            {user?.payment || "Pending...."}
           </p>
 
           <form className="w-100" onSubmit={handleSubmit}>
@@ -106,6 +112,13 @@ const Modal = ({ id }) => {
               value={prise}
               onChange={(e) => setPrise(e.target.value)}
             />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Project URL"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+            />
             <button type="submit" class="btn btn-success form-control">
               Submit
             </button>
@@ -129,6 +142,6 @@ const Modal = ({ id }) => {
       </div>
     </div>
   );
-}
+};
 
-export default Modal
+export default Modal;

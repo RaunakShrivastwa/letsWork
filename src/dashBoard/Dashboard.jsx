@@ -1,26 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.scss";
 import Sidebar from "./sidebar/Sidebar";
-import {Eye, Maximize, Menu } from "react-feather";
+import { Eye, Maximize, Menu } from "react-feather";
 import Wizard from "./wizard/Wizard";
 import ProjectInfo from "./wizard/Projectinfo/ProjectInfo";
-import AdminInfo from "./AdminInfo/AdminInfo";
 import Member from "./Member/Member";
 import UpdateStatus from "../Model/UpdateStatus";
-import { useSelector } from "react-redux";
+import cookie from "js-cookie";
+import axios from "axios";
 
 const Dashboard = () => {
   const website = "https://www.feedocenter.com/?trk=public_post-text#/";
-  const { user } = useSelector((state) => state.project);
-  console.log(user);
-  
+  const [user, setUser] = useState();
+  const [id, setId] = useState();
+  const [token, setToken] = useState();
+  const [project, setProject] = useState({});
+
+  console.log("user state is", user)
+  console.log("dashboard component is rendering", project);
+
+  function setCurentProject(projectName, selectedFrom) {
+    const projectDetail = user[selectedFrom].reduce(
+      (acc, value) => {
+        if(value.projectName === projectName){
+          return {...value}
+      }
+      return acc;
+    }
+    , {});
+    console.log("projectDetail", projectDetail);
+    setProject(projectDetail)
+  }
+
+  useEffect(() => {
+    const ids = cookie.get("id");
+
+    const tokens = cookie.get("token");
+    if (ids) {
+      setId(JSON.parse(ids));
+    }
+    console.log(tokens + "toekn");
+    if (tokens) {
+      setToken(tokens);
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (id) => {
+      try {
+        const response = await axios.get(
+          `http://localhost:9000/letswork/user/api/user/fetch/${id}`,
+          { headers: { Authorization: `${token}` } }
+        );
+        console.log("res is", response);
+        setUser(response.data.user);
+        console.log(
+          "user is",
+          response.data.user?.currentProjects[
+            response.data.user?.currentProjects.length - 1
+          ]
+        );
+        setProject(
+          response.data.user?.currentProjects[
+            response.data.user?.currentProjects.length - 1
+          ]
+        );
+      } catch (error) {
+        console.log("error");
+      }
+    };
+
+    fetchData(id);
+  }, [id]);
+
   return (
     <div className="dashboard_con">
-      {/* <Sidebar /> */}
-      <div className="d-none d-lg-flex d-xl-flex d-md-flex">
-        {/* <Sidebar user={user} /> */}
-      </div>
-
+      <Sidebar user={user} setCurentProject={setCurentProject} />
       {/* for the Body */}
       <div className="Dbody flex-grow-1 m-1 d-flex flex-column gap-1">
         {/* nav */}
@@ -38,7 +93,7 @@ const Dashboard = () => {
           />
         </nav>
         {/* for the status of Project */}
-        <Wizard />
+        <Wizard project={project.wizard} />
         <div className="wizard_con d-flex">
           <ProjectInfo />
         </div>
@@ -47,7 +102,7 @@ const Dashboard = () => {
         <div className="iframe flex-grow-1 custome_radius">
           <iframe
             className="box_shadow custome_border w-100 h-100 custome_radius"
-            src={website}
+            src={project?.projectUrl}
             title="description"
           ></iframe>
           <a href={website}>
@@ -58,18 +113,19 @@ const Dashboard = () => {
         {/* for the Dbody Footer */}
         <div className="Dbody_footer custome_radius box_shadow mb-1 d-flex align-items-center px-3">
           <div className="d-flex gap-5">
-                 <Eye />
-                 <span>Wireframes</span>
-                 <Member />
-                 
+            <Eye />
+            <span>Wireframes</span>
+            <Member />
           </div>
-          <span className="flex-grow-1 d-flex justify-content-end">Total PriseL: $120.45</span>
+          <span className="flex-grow-1 d-flex justify-content-end">
+            Total PriseL: $120.45
+          </span>
         </div>
       </div>
 
       {/* canvas */}
       <div
-        class="offcanvas offcanvas-sidebar offcanvas-start p-0"
+        class="offcanvas offcanvas-sidebar offcanvas-start p-0 "
         data-bs-scroll="true"
         data-bs-backdrop="false"
         tabindex="-1"

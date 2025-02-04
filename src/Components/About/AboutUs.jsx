@@ -1,5 +1,5 @@
 import React from "react";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin} from "lucide-react";
 import "./About.scss";
 import Banner from "../../commonComponents/Banner/Banner";
 import ServiceCard from "./ServiceCard";
@@ -7,6 +7,8 @@ import TeamMember from "./TeamMember";
 import { Facebook, GitHub, Instagram, Phone } from "react-feather";
 import Footer from "../../commonComponents/Footer/Footer";
 import WhyChhoseUs from "./WhyChhoseUs";
+import { useSelector } from "react-redux";
+import { services } from "../../staticJson/static";
 
 const ScrollableSection = ({ title, items, renderItem }) => (
   <section className="mb-5">
@@ -22,37 +24,6 @@ const ScrollableSection = ({ title, items, renderItem }) => (
 );
 
 const AboutUs = () => {
-  const services = [
-    {
-      icon: Linkedin,
-      title: "Website Development",
-      description:
-        "We create responsive websites using cutting-edge technologies.",
-    },
-    {
-      icon: Twitter,
-      title: "Video Editing",
-      description:
-        "Professional video editing services for all your multimedia needs.",
-    },
-    {
-      icon: Github,
-      title: "API Services",
-      description:
-        "Robust and scalable API solutions for seamless integration.",
-    },
-    {
-      icon: Linkedin,
-      title: "UI Design",
-      description: "Intuitive and visually appealing user interface designs.",
-    },
-    {
-      icon: Twitter,
-      title: "Courses",
-      description:
-        "Educational courses to enhance your skills in various technologies.",
-    },
-  ];
 
   const teamMembers = [
     {
@@ -153,13 +124,25 @@ const AboutUs = () => {
     },
   ];
 
+  const {serverStatus} = useSelector(
+    (state) => state.server
+  );
+
   return (
     <div className="about-us-page vh-100 overflow-y-auto mt-4">
-      <Banner
-        image={"https://wallpapercave.com/wp/wp2471711.jpg"}
-        title={"Welcome to Let's Work"}
-        lead={"Empowering Your Digital Journey with Cutting-Edge Solutions"}
-      />
+      {serverStatus === "failed" ? (
+        <Banner
+          image={"/images/about.jpg"}
+          title={"Discover Me, and My Services"}
+          lead={"Empowering Your Digital Journey with Cutting-Edge Solutions"}
+        />
+      ) : (
+        <Banner
+          image={"/images/about.jpg"}
+          title={"About Let's Work"}
+          lead={"Empowering Your Digital Journey with Cutting-Edge Solutions"}
+        />
+      )}
       <div className=" py-5 p-3">
         <section className="about-section mb-5">
           <h2 className="section-title text-center mb-4">About Let's Work</h2>
@@ -173,7 +156,7 @@ const AboutUs = () => {
                 multimedia services like video and image editing
               </p>
               <div className="card border-0 bg-transparent box_shadow mb-2">
-                <div className="card-body why_choose_lets_work">
+                <div className="card-body why_card why_choose_lets_work">
                   <h3 className="h4 mb-3">Why Choose Lets'work?</h3>
                   <WhyChhoseUs />
                 </div>

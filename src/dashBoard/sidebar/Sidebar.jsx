@@ -10,10 +10,13 @@ import {
   User,
 } from "react-feather";
 import "./Sidebar.scss";
-import UpdateStatus from "../../Model/UpdateStatus";
 
-const Sidebar = ({ user }) => {
+const Sidebar = ({ user, setCurentProject }) => {
+  console.log(user + "user");
+
   const [toggle, setToggle] = useState(true);
+
+  console.log(user?.userName);
 
   const hideSideBar = () => {
     setToggle(!toggle);
@@ -56,7 +59,7 @@ const Sidebar = ({ user }) => {
             <div className="d-flex align-items-center h-100 px-3 gap-2">
               <User />
               <span className={`${toggle ? "d-block" : "d-none"}`}>
-                Hello Bunny
+                {user?.userName || "abc@gmail.com"}
               </span>
             </div>
           </li>
@@ -94,33 +97,43 @@ const Sidebar = ({ user }) => {
                 className={`w-100 h-100 border-0 ${
                   toggle ? "d-block" : "d-none"
                 } `}
+                onChange={(e) =>
+                  setCurentProject(e.target.value, "pastProjects")
+                }
               >
                 <option value="Past Projects">Past Projects</option>
                 {user?.pastProjects.map((data) => (
-                  <option value="E-Commerce">{data?.projectName}</option>
+                  <option key={data?._id} value={data?.projectName}>
+                    {data?.projectName}
+                  </option>
                 ))}
               </select>
             </div>
           </li>
 
+          {/* recent */}
           <li className={`${toggle ? "" : "hide_text"}`}>
             <div
               className={`d-flex align-items-center h-100 px-3 gap-2 ${
                 toggle ? "w-100" : ""
-              } `}
+              }`}
             >
               <FileText />
               <select
-                name=""
-                id=""
+                name="recentProjects"
                 className={`w-100 h-100 border-0 ${
                   toggle ? "d-block" : "d-none"
-                } `}
+                }`}
+                onChange={(e) =>
+                  setCurentProject(e.target.value, "currentProjects")
+                }
               >
-                <option value="Recent Projects">Recent Projects</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="E-Commerce">E-Commerce</option>
+                <option value="">Select Recent Project</option>
+                {user?.currentProjects.map((data) => (
+                  <option key={data?._id} value={data?.projectName}>
+                    {data?.projectName}
+                  </option>
+                ))}
               </select>
             </div>
           </li>

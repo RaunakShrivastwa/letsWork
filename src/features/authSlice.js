@@ -61,8 +61,26 @@ export const fetchAuthUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.token; // Get token from state
+      const response = await axios.get(`${BASE_URL}/user/api/all/data`, {
+        headers: { Authorization: `${token}` },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data || "Failed to fetch authenticated user"
+      );
+    }
+  }
+);
+
+// Asynchronous thunk for fetching authenticated user details
+export const SingleUser = createAsyncThunk(
+  "auth/SingleUser",
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token; // Get token from state
       const response = await axios.get(
-        `${BASE_URL}/user/api/all/data`,
+        `${BASE_URL}/user/api/user/fetch/${id}`,
         {
           headers: { Authorization: `${token}` },
         }
@@ -75,21 +93,6 @@ export const fetchAuthUser = createAsyncThunk(
     }
   }
 );
-
-// Asynchronous thunk for fetching authenticated user details
-export const SingleUser = createAsyncThunk("auth/SingleUser", async (id, thunkAPI) => {
-  try {
-    const token = thunkAPI.getState().auth.token; // Get token from state
-    const response = await axios.get(`${BASE_URL}/user/api/user/fetch/${id}`, {
-      headers: { Authorization: `${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(
-      error.response?.data || "Failed to fetch authenticated user"
-    );
-  }
-});
 
 // Asynchronous thunk for fetching authenticated user details
 export const resend = createAsyncThunk(
@@ -131,11 +134,9 @@ const authSlice = createSlice({
     token: null, // JWT token
     status: "idle", // idle | loading | succeeded | failed
     error: null,
-    verify:false,
-    clients:null,
-    tempUser:null
-
-
+    verify: false,
+    clients: null,
+    tempUser: null,
   },
   reducers: {
     logout: (state) => {
@@ -144,12 +145,15 @@ const authSlice = createSlice({
       state.status = "idle";
       state.error = null;
       cookie.remove("token");
-      cookie.remove("info");
+      cookie.remove("id");
     },
     setAuth: (state, action) => {
-      console.log(action, "............................");
       state.token = action.payload.token;
       state.user = action.payload.user;
+      const { user } = action.payload;
+      if (user) {
+        cookie.set("id", JSON.stringify(user?._id), { expires: 7 });
+      }
     },
   },
 
@@ -161,7 +165,7 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.token = action.payload.token; // Assuming response includes token
-        
+
         state.user = action.payload.user; // Assuming response includes user details
         cookie.set("token", action.payload.token, { expires: 7 });
       })
@@ -223,8 +227,6 @@ const authSlice = createSlice({
         state.status = "failed";
         state.error = action.payload;
       });
-
-
   },
 });
 
